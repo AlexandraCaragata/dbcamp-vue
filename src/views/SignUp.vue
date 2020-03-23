@@ -34,7 +34,7 @@
 		display: flex;
 		flex-direction: column;
 
-		width: 40%;
+		width: 30%;
 		margin: 2vh auto;
 		padding: 2vh 2vw;
 
