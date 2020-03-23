@@ -17,20 +17,28 @@
     color: black;
   }
 
-  #app {
-    font-family: Avenir, Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+  h1, h2, h3, h4 {
     text-align: center;
-    color: #2c3e50;
+  };
+
+  input {
+    font-family: 'Heebo', sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+  }
+
+  #app {
+    font-family: 'Heebo', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
   }
 </style>
 
 <script>
-  import NavBar from '@/components/layout/NavBar.vue';
-  import Footer from '@/components/layout/Footer.vue';
+  import NavBar from '@/components/layout/NavBar';
+  import Footer from '@/components/layout/Footer';
   export default {
-    components: {Footer, NavBar },
+    components: { Footer, NavBar },
     methods: {
 
     }
