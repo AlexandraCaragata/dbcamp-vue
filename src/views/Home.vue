@@ -1,18 +1,27 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    {{this.apiMessage}}
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
-
-export default {
+  export default {
   name: 'Home',
+  data: function () {
+    return {
+      apiMessage: '',
+    }
+  },
   components: {
-    HelloWorld
+  },
+  created: function () {
+    this.getMessageFromApi();
+  },
+  methods: {
+    getMessageFromApi: async function () {
+      const connection = await fetch('http://localhost/db-camp/api-test.php');
+      this.apiMessage = await connection.json();
+    }
   }
 }
 </script>
