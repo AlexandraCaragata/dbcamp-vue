@@ -53,6 +53,7 @@
 .splash-text > h1 {
   margin-top: 0;
   font-size: 40px;
+  text-align: left;
 }
 .splash-text > p {
   color: black;
@@ -83,6 +84,8 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   color: black;
+  margin-top: 15px;
+  margin-bottom: 20px;
 }
 .step {
   width: 180px;

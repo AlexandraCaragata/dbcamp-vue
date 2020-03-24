@@ -7,6 +7,7 @@
 				<router-link to="/about">Who are we</router-link>
 				<router-link to="/contact">Contact</router-link>
 				<router-link to="/login">Login</router-link>
+				<router-link to="/sign-up">Sign Up</router-link>
 			</div>
 			<div class="logged-in-pages" v-if="false">
 				<router-link to="/topics">Topics</router-link>
@@ -26,7 +27,7 @@
 		justify-content: space-between;
 		align-items: center;
 
-		background-color: #e8e2d2;
+		background-color: #d3cecb;
 		padding: 0 3vw;
 	}
 
@@ -48,7 +49,7 @@
 
 <script>
 	export default {
-		name: "NavBar.vue"
+		name: "NavBar"
 	}
 </script>
 

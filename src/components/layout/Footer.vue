@@ -33,7 +33,7 @@
 		position: absolute;
 		width: 100vw;
 
-		background-color: #e8e2d2;
+		background-color: #d3cecb;
 	}
 
 	div.follow-us {
