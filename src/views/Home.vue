@@ -37,6 +37,16 @@
         </div>
       </div>
     </section>
+
+    <!-- BOTTOM SECTION -->
+    <div class="bottom-container">
+      <div class="bottom-text">
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+          <br />Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+        </p>
+      </div>
+    </div>
   </div>
 </template>
 <style lang="scss">
@@ -52,19 +62,22 @@
 }
 .splash-text > h1 {
   margin-top: 0;
-  font-size: 40px;
+  margin-bottom: 0;
+  font-size: 45px;
   text-align: left;
+  color: #354865;
 }
 .splash-text > p {
   color: black;
   line-height: 1.5;
-  font-size: 18px;
+  font-size: 20px;
+  font-weight: 100;
 }
 .splash-text {
   padding-top: 10vh;
   padding-left: 25vh;
   text-align: left;
-  width: 300px;
+  width: 400px;
 }
 
 .btn-goToSignup {
@@ -72,7 +85,7 @@
   width: 120px;
   height: 40px;
   color: white;
-  font-size: 18px;
+  font-size: 20px;
   font-weight: bold;
   border: #354865;
   border-radius: 5px;
@@ -97,6 +110,10 @@ p {
 }
 .step > h3 {
   margin: 0;
+  text-transform: uppercase;
+}
+.step > p {
+  font-weight: 100;
 }
 .step > .icon {
   width: 100%;
@@ -116,11 +133,11 @@ p {
   grid-template-columns: 1fr 1fr;
 }
 .signup-text {
-  width: 280px;
+  width: 350px;
   color: black;
   margin: auto;
   line-height: 1.5;
-  font-size: 18px;
+  font-size: 20px;
 }
 .signup-text > h2 {
   text-align: left;
@@ -132,7 +149,7 @@ p {
   color: black;
   margin-top: 20px;
   margin-bottom: 20px;
-  font-size: 18px;
+  font-size: 20px;
 }
 .signup-form > form {
   display: grid;
@@ -147,6 +164,30 @@ input[type="text"] {
   border-radius: 4px;
   box-sizing: border-box;
   margin-bottom: 10px;
+}
+// BOTTOM SECTION
+.bottom-container {
+  top: 0;
+  background-image: url("../assets/girl-with-computer.jpg");
+  width: 100%;
+  height: 600px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  box-shadow: inset 0 0 0 2000px rgba(224, 224, 224, 0.3);
+  position: relative;
+  margin-bottom: 250px;
+}
+.bottom-text {
+  width: 900px;
+  background-color: #9b646f;
+  position: absolute;
+  top: 95%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  padding: 30px;
+  font-size: 25px;
 }
 </style>
 <script>
