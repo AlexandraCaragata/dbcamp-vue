@@ -41,21 +41,21 @@
 .splash-text > h1 {
   margin-top: 0;
   margin-bottom: 0;
-  font-size: 45px;
+  font-size: 30px;
   text-align: left;
   color: #354865;
 }
 .splash-text > p {
   color: black;
   line-height: 1.5;
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 100;
 }
 .splash-text {
   padding-top: 10vh;
-  padding-left: 25vh;
+  padding-left: 5vh;
   text-align: left;
-  width: 400px;
+  width: 200px;
 }
 
 .btn-goToSignup {
@@ -63,7 +63,7 @@
   width: 120px;
   height: 40px;
   color: white;
-  font-size: 20px;
+  font-size: 16px;
   font-weight: bold;
   border: #354865;
   border-radius: 5px;
@@ -73,7 +73,7 @@
 // STEPS SECTION
 .steps-container {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr;
   color: black;
   margin-top: 15px;
   margin-bottom: 20px;
@@ -102,6 +102,30 @@ p {
 // SIGN UP SECTION
 
 // BOTTOM SECTION
+
+@media screen and (min-width: 970px) {
+  // SPLASH SECTION
+  .splash-text > h1 {
+    font-size: 45px;
+  }
+  .splash-text > p {
+    font-size: 20px;
+  }
+  .splash-text {
+    padding-left: 25vh;
+    width: 400px;
+  }
+
+  .btn-goToSignup {
+    font-size: 20px;
+  }
+
+  // STEPS SECTION
+  .steps-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
 </style>
 <script>
 import SignupSection from "@/components/layout/SignupSection";

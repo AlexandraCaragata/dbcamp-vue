@@ -29,7 +29,7 @@
 // ABOUT SECTION
 .about-container {
   margin: auto;
-  padding: 0px 120px;
+  padding: 0px 12px;
 }
 .about-text {
   line-height: 1.5;
@@ -39,8 +39,8 @@
   text-align: left;
 }
 .about-img {
-  display: flex;
-  margin: 60px 0px;
+  display: block;
+  margin: 10px 0px;
 }
 
 .about-img > img {
@@ -51,7 +51,20 @@
   border-radius: 5px;
 }
 .gap {
-  margin: 60px 0px;
+  margin: 30px 0px;
+}
+@media screen and (min-width: 970px) {
+  .about-container {
+    margin: auto;
+    padding: 0px 120px;
+  }
+  .about-img {
+    display: flex;
+    margin: 60px 0px;
+  }
+  .gap {
+    margin: 60px 0px;
+  }
 }
 </style>
 
