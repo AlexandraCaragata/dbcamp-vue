@@ -60,7 +60,7 @@ export default {
   name: "SignupSection.vue",
   methods: {
     goToSignup: function() {
-      location.href = "/signup";
+      location.href = "/sign-up";
     }
   }
 };

@@ -173,7 +173,7 @@ export default {
       this.apiMessage = await connection.json();
     },
     goToSignup: function() {
-      location.href = "/signup";
+      location.href = "/sign-up";
     }
   }
 };
