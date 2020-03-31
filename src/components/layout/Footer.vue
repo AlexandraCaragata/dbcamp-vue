@@ -22,7 +22,6 @@
 </template>
 
 <style lang="scss">
-<<<<<<< HEAD
 	footer {
 		display: flex;
 		flex-direction: row;

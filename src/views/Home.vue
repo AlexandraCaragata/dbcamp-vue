@@ -1,6 +1,5 @@
 <template>
   <div class="home">
-    {{this.apiMessage}}
     <!-- SPLASH SECTION -->
     <div class="splash-container">
       <div class="splash-text">
@@ -204,6 +203,11 @@ export default {
         }
       ]
     };
+  },
+  methods: {
+    goToSignup: function() {
+      location.href = "/sign-up";
+    },
   },
 };
 </script>
