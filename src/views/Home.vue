@@ -157,7 +157,7 @@ p {
 label {
   text-align: left;
 }
-input[type="text"] {
+input {
   width: 300px;
   padding: 12px 20px;
   border: 1px solid #ccc;
@@ -225,14 +225,7 @@ export default {
     };
   },
   components: {},
-  created: function() {
-    this.getMessageFromApi();
-  },
   methods: {
-    getMessageFromApi: async function() {
-      const connection = await fetch("http://localhost/db-camp/api-test.php");
-      this.apiMessage = await connection.json();
-    },
     goToSignup: function() {
       location.href = "/signup";
     }

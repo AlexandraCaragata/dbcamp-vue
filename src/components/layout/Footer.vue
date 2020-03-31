@@ -30,7 +30,6 @@
 		height: 15vh;
 
 		bottom: 0;
-		position: absolute;
 		width: 100vw;
 
 		background-color: #d3cecb;

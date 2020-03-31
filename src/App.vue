@@ -1,12 +1,14 @@
 <template>
   <div id="app">
-    <NavBar></NavBar>
-    <router-view/>
+    <NavBar @showLoginModal=showLoginModal()></NavBar>
+    <router-view :class="{ 'opacity': displayLogin }"/>
+    <Login :displayLogin="displayLogin"></Login>
     <Footer></Footer>
   </div>
 </template>
 
 <style lang="scss">
+// add in here all the rules that are being used application wide
   html, body, #app {
     margin: 0;
     height: 100%;
@@ -32,15 +34,51 @@
     font-weight: 400;
     font-size: 16px;
   }
+
+  // general form styling
+  .form-container {
+    margin: 0 auto;
+  }
+
+  label {
+    display: flex;
+    flex-direction: column;
+  }
+
+  button {
+    width: 30%;
+    height: 3em;
+
+    border-radius: 5px;
+    border: none;
+    background-color: #354865;
+
+    color: white;
+    font-size: 16px;
+  }
+
+  // this class adds opacity on the page begin the login modal
+  .opacity {
+    opacity: 40%;
+  }
 </style>
 
 <script>
   import NavBar from '@/components/layout/NavBar';
   import Footer from '@/components/layout/Footer';
+  import Login from "./components/Login";
   export default {
-    components: { Footer, NavBar },
-    methods: {
+    components: { Login, Footer, NavBar },
+    data: function () {
+      return {
+        displayLogin: false,
+      }
+    },
 
+    methods: {
+      showLoginModal: function () {
+        this.displayLogin = true;
+      }
     }
   }
 </script>

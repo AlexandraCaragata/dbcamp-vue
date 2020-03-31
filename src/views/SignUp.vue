@@ -2,7 +2,7 @@
 	<div>
 		<h1>Sign Up</h1>
 		<div>
-			<form class="sign-up-form" ref="signpForm" @submit.prevent="saveUser">
+			<form class="sign-up-form" @submit.prevent="saveUser">
 				<div class="form-container">
 					<label for="first-name">First name</label>
 					<input type="text" id="first-name" placeholder="First name" v-model="firstName">
@@ -47,40 +47,13 @@
 		}
 	}
 
-	.form-container {
-		margin-left: 4vw;
-	}
 
-	input {
-		margin: 0.5vh 0;
-		width: 70%;
-		height: 3em;
-
-		border: none;
-		padding: 0 0.5vw;
-	}
-
-	label {
-		display: flex;
-		flex-direction: column;
-	}
-
-	button {
-		margin: 0 auto;
-		width: 20%;
-		height: 3em;
-
-		border-radius: 5px;
-		border: none;
-		background-color: #354865;
-
-		color: white;
-		font-size: 16px;
-	}
 
 </style>
 
 <script>
+	import formDataGenerator from "../services/formDataGenerator";
+
 	export default {
 		name: "SignUp",
 
@@ -96,17 +69,30 @@
 
 		methods: {
 			saveUser: async function () {
-				const formData = new FormData();
-
-				formData.append('firstName', this.firstName);
-				formData.append('lastName', this.lastName);
-				formData.append('username', this.username);
-				formData.append('email', this.email);
-				formData.append('password', this.password);
-
-				await fetch('http://localhost/db-camp/databaseConnections/user/create-user.php', {
+				const response = await fetch('http://localhost/db-camp/databaseConnections/user/create-user.php', {
 					method: 'POST',
-					body: formData,
+					body: formDataGenerator.generate({
+						firstName: this.firstName,
+						lastName: this.lastName,
+						username: this.username,
+						email: this.email,
+						password: this.password,
+					}),
+				});
+
+				const body = await response.json();
+
+				this.sendConfirmationEmail(body.id);
+			},
+
+			sendConfirmationEmail: async function (id) {
+				await fetch('http://localhost/db-camp/emailService/api-send-email.php', {
+					method: 'POST',
+					body: formDataGenerator.generate({
+						'email_message' : `In order to validate your account please click this link: http://localhost/db-camp/databaseConnections/user/validate-user.php?id=${id}` ,
+						'subject': 'Validation mail',
+						'email_address_to': this.email,
+					})
 				});
 			}
 		}

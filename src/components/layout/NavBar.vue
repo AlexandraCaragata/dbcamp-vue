@@ -2,14 +2,14 @@
 	<nav>
 		<img src="../../assets/logo.png" alt="">
 		<div class="pages">
-			<div class="not-logged-in-pages">
+			<div class="not-logged-in-pages" v-if="!getUser">
 				<router-link to="/">Home</router-link>
 				<router-link to="/about">Who are we</router-link>
 				<router-link to="/contact">Contact</router-link>
-				<router-link to="/login">Login</router-link>
+				<a @click="$emit('showLoginModal')">Login</a>
 				<router-link to="/sign-up">Sign Up</router-link>
 			</div>
-			<div class="logged-in-pages" v-if="false">
+			<div class="logged-in-pages" v-if="getUser">
 				<router-link to="/topics">Topics</router-link>
 				<router-link to="/forum">Forum</router-link>
 				<router-link to="/my-account">My Account</router-link>
@@ -45,11 +45,24 @@
 			margin-left: 1vw;
 		}
 	}
+
+	.not-logged-in-pages {
+		a {
+			cursor: pointer;
+		}
+	}
 </style>
 
 <script>
-	export default {
-		name: "NavBar"
+import { mapGetters } from "vuex";
+
+export default {
+	name: "NavBar",
+	computed: {
+		...mapGetters([
+			'getUser'
+		]),
 	}
+}
 </script>
 
