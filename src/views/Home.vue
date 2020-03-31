@@ -20,33 +20,11 @@
     </div>
 
     <!-- SIGN UP SECTION -->
-    <section class="signup-section">
-      <div class="signup-container">
-        <div class="signup-text">
-          <h2>Sign up</h2>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum laborum perspiciatis soluta similique ex.</p>
-        </div>
-        <div class="signup-form">
-          <form>
-            <label for="nameLabel">Name</label>
-            <input type="text" placeholder="Name" name="nameTxt" />
-            <label for="emailLabel">E-mail</label>
-            <input type="text" placeholder="E-mail" name="emailTxt" />
-            <button class="btn-goToSignup">Sign Up</button>
-          </form>
-        </div>
-      </div>
-    </section>
+
+    <SignupSection></SignupSection>
 
     <!-- BOTTOM SECTION -->
-    <div class="bottom-container">
-      <div class="bottom-text">
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-          <br />Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-        </p>
-      </div>
-    </div>
+    <VisionMission></VisionMission>
   </div>
 </template>
 <style lang="scss">
@@ -63,21 +41,21 @@
 .splash-text > h1 {
   margin-top: 0;
   margin-bottom: 0;
-  font-size: 45px;
+  font-size: 30px;
   text-align: left;
   color: #354865;
 }
 .splash-text > p {
   color: black;
   line-height: 1.5;
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 100;
 }
 .splash-text {
   padding-top: 10vh;
-  padding-left: 25vh;
+  padding-left: 5vh;
   text-align: left;
-  width: 400px;
+  width: 200px;
 }
 
 .btn-goToSignup {
@@ -85,7 +63,7 @@
   width: 120px;
   height: 40px;
   color: white;
-  font-size: 20px;
+  font-size: 16px;
   font-weight: bold;
   border: #354865;
   border-radius: 5px;
@@ -95,7 +73,7 @@
 // STEPS SECTION
 .steps-container {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr;
   color: black;
   margin-top: 15px;
   margin-bottom: 20px;
@@ -166,36 +144,39 @@ input {
   margin-bottom: 10px;
 }
 // BOTTOM SECTION
-.bottom-container {
-  top: 0;
-  background-image: url("../assets/girl-with-computer.jpg");
-  width: 100%;
-  height: 600px;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  box-shadow: inset 0 0 0 2000px rgba(224, 224, 224, 0.3);
-  position: relative;
-  margin-bottom: 250px;
-}
-.bottom-text {
-  width: 900px;
-  background-color: #9b646f;
-  position: absolute;
-  top: 95%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: white;
-  padding: 30px;
-  font-size: 25px;
+
+@media screen and (min-width: 970px) {
+  // SPLASH SECTION
+  .splash-text > h1 {
+    font-size: 45px;
+  }
+  .splash-text > p {
+    font-size: 20px;
+  }
+  .splash-text {
+    padding-left: 25vh;
+    width: 400px;
+  }
+
+  .btn-goToSignup {
+    font-size: 20px;
+  }
+
+  // STEPS SECTION
+  .steps-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
 }
 </style>
 <script>
+import SignupSection from "@/components/layout/SignupSection";
+import VisionMission from "@/components/layout/VisionMission";
 export default {
   name: "Home",
+  components: { SignupSection, VisionMission },
   data: function() {
     return {
-      apiMessage: "",
       steps: [
         {
           stepId: 1,
@@ -224,11 +205,5 @@ export default {
       ]
     };
   },
-  components: {},
-  methods: {
-    goToSignup: function() {
-      location.href = "/signup";
-    }
-  }
 };
 </script>
