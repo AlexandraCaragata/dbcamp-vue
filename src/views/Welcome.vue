@@ -8,7 +8,12 @@
       </h1>
       <!-- COURSES/TOPICS SECTION -->
       <div class="allCourses">
-        <div class="course" v-for="course in courses" v-bind:key="course.courseId">
+        <div
+          class="course"
+          v-for="course in courses"
+          v-bind:key="course.courseId"
+          v-on:click="location.href=url(`http://localhost:8080/${course.courseLink}`)"
+        >
           <img :src="require(`../assets/icons/${course.courseIcon}`)" alt="icon" />
           <h3>Course</h3>
           <h2>{{course.courseTitle}}</h2>
@@ -17,16 +22,7 @@
       </div>
 
       <!-- FORUM SECTION -->
-      <div class="forum-container">
-        <img src="../assets/icons/chat-icon-hi.png" style="
-    margin-left: 70px" alt="icon" />
-        <div class="forum-txt">
-          <h1>Do you need help?</h1>
-          <h2>Chat with the experts</h2>
-          <button class="btn-goToForum" v-on:click="goToForum">Go to the forum</button>
-        </div>
-        <img src="../assets/icons/chat-icon-what.png" alt="icon" />
-      </div>
+      <ForumChatBanner></ForumChatBanner>
     </section>
   </div>
 </template>
@@ -51,6 +47,7 @@ h1 {
   padding: 10px;
   margin: 25px 50px 25px 0px;
   border-radius: 5px;
+  cursor: pointer;
 }
 .course > p {
   font-weight: 100;
@@ -73,46 +70,13 @@ h3 {
   margin-top: -3.5vw;
   margin-left: 16vw;
 }
-// FORUM
-.forum-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  height: 250px;
-}
-.forum-txt {
-  text-align: center;
-  margin: auto;
-}
-.forum-txt > h1 {
-  font-weight: bold;
-  margin: 0;
-  text-align: center;
-}
-.forum-txt > h2 {
-  font-weight: 400;
-  margin: 0;
-}
-.btn-goToForum {
-  background-color: #354865;
-  width: 180px;
-  height: 50px;
-  color: white;
-  font-size: 18px;
-  font-weight: bold;
-  border: #354865;
-  border-radius: 5px;
-  cursor: pointer;
-  margin: 15px 0;
-}
-.forum-container > img {
-  height: 100%;
-  align-content: right;
-}
 </style>
 
 <script>
+import ForumChatBanner from "@/components/layout/ForumChatBanner";
 export default {
   name: "Welcome",
+  components: { ForumChatBanner },
   data: function() {
     return {
       apiMessage: "",
@@ -123,50 +87,51 @@ export default {
           courseTitle: "SQL",
           courseTxt:
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, obcaecati possimus laboriosam similique.",
-          courseIcon: "pink.png"
+          courseIcon: "pink.png",
+          courseLink: "/learn-sql"
         },
         {
           courseId: 2,
           courseTitle: "Rational Database",
           courseTxt:
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, obcaecati possimus laboriosam similique.",
-          courseIcon: "purple.png"
+          courseIcon: "purple.png",
+          courseLink: "/learn-sql"
         },
         {
           courseId: 3,
           courseTitle: "Database Normalisation",
           courseTxt:
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, obcaecati possimus laboriosam similique.",
-          courseIcon: "dark-blue.png"
+          courseIcon: "dark-blue.png",
+          courseLink: "/learn-sql"
         },
         {
           courseId: 4,
           courseTitle: "Entity Diagram",
           courseTxt:
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, obcaecati possimus laboriosam similique.",
-          courseIcon: "skin-color.png"
+          courseIcon: "skin-color.png",
+          courseLink: "/learn-sql"
         },
         {
           courseId: 5,
           courseTitle: "Web Front End",
           courseTxt:
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, obcaecati possimus laboriosam similique.",
-          courseIcon: "salmon.png"
+          courseIcon: "salmon.png",
+          courseLink: "/learn-sql"
         },
         {
           courseId: 6,
           courseTitle: "Web Front End",
           courseTxt:
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, obcaecati possimus laboriosam similique.",
-          courseIcon: "yellow.png"
+          courseIcon: "yellow.png",
+          courseLink: "/learn-sql"
         }
       ]
     };
-  },
-  methods: {
-    goToForum: function() {
-      location.href = "/forum";
-    }
   }
 };
 </script>
