@@ -2,8 +2,8 @@
   <div class="bottom-container">
     <div class="bottom-text">
       <p>
-        Our vision is dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-        <br />Our mission is Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+        Our mission is to help everyone, regardless of expertise, to understand Databases, what they are used for and how they can be used. We want to simplify Databases by developing educational materials with relatable examples from everyday life. Our e-learning system aims to guide you through Databases in a fun, simple and educational way whenever YOU have the time for it.
+        </p><p>Join the journey and become a better developer!
       </p>
     </div>
   </div>

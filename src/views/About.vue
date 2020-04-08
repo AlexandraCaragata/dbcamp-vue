@@ -6,9 +6,15 @@
       <div class="about-text">
         <h1>Who are we...</h1>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum provident porro iure numquam tempora nam, deserunt maiores nemo illum alias accusamus voluptatibus eius dicta sit, consequatur obcaecati nostrum quibusdam delectus. Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-          <br />Eligendi numquam nisi minus eum veritatis quasi asperiores, modi sapiente. Dicta fuga magnam est maxime repudiandae explicabo vero adipisci tempora quod quas. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab, provident! Voluptate, explicabo? Tempore deserunt voluptatem architecto error aperiam repellendus sit omnis.
+          We’re a Copenhagen-based community that helps you to learn developing projects with databases by simple video tutorials, relatable examples from everyday life and fun quizzes to get your knowledge into praxis. And as a bonus you’ll also earn diplomas along the way to show to your teachers, your coworkers or even to your next job interview. 
         </p>
+        <p>We have developed an e-learning system that aims to simplify knowledge about Databases and teach everyone, regardless of expertise, how to get started with building projects with a database.
+
+<br><br>Our e-learning system uses short and simple texts, interesting and informative videos and always ends with a fun quiz that requires you to make use of your new knowledge. 
+</p>
+        <p>One of the challenges of e-learning systems is that you are missing the discussions with your friends and their perspectives. We have tried to address this problem by creating a community where everyone, regardless of level and expertise, can come together and help each other. You can ask questions to other students at DB Camp or to DB Camp's own experts.</p>
+        <h3>We would love to help you with your specific project!</h3>
+
       </div>
       <div class="about-img">
         <img src="../assets/girls-laughing.jpg" alt />
@@ -35,7 +41,7 @@
   line-height: 1.5;
   font-weight: 100;
 }
-.about-text > h1 {
+.about-text > h1, h3 {
   text-align: left;
 }
 .about-img {
