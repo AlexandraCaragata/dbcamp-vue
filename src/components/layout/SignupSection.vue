@@ -3,8 +3,8 @@
   <section class="signup-section">
     <div class="signup-container">
       <div class="signup-text">
-        <h2>Sign up</h2>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum laborum perspiciatis soluta similique ex.</p>
+        <h2>Join the journey and become a better developer!</h2>
+        <p>Sign up to DB Camp and get access to learning materials for all five topics including our super cool forum.</p>
         <button class="btn-goToSignup" v-on:click="goToSignup">Sign Up</button>
       </div>
     </div>
@@ -14,12 +14,11 @@
 <style>
 .signup-section {
   background-color: #d3cecb;
-  padding: 20px;
+  padding: 10px;
 }
 .signup-container {
   margin: auto;
-  display: grid;
-  grid-template-columns: 1fr;
+
 }
 .signup-text {
   color: black;
@@ -30,12 +29,12 @@
 .signup-text > h2 {
   text-align: left;
   margin-top: 0;
-  font-size: 30px;
+  font-size: 25px;
 }
 @media screen and (min-width: 970px) {
   .signup-section {
     background-color: #d3cecb;
-    padding: 20px;
+    padding: 10px;
   }
   .signup-container {
     width: 800px;
@@ -50,7 +49,7 @@
   .signup-text > h2 {
     text-align: left;
     margin-top: 0;
-    font-size: 35px;
+    font-size: 25px;
   }
 }
 </style>

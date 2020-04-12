@@ -4,7 +4,7 @@
     <div class="splash-container">
       <div class="splash-text">
         <h1>Welcome</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+        <p>We aim to make our e-learning system about Databases, relevant and interesting for all no matter expertise.</p>
         <button v-on:click="goToSignup" class="btn-goToSignup">Sign up</button>
       </div>
     </div>
@@ -78,7 +78,7 @@
   margin-bottom: 20px;
 }
 .step {
-  width: 180px;
+  width: 250px;
   margin: auto;
 }
 .step > h3,
@@ -179,27 +179,27 @@ export default {
       steps: [
         {
           stepId: 1,
-          stepH3: "This is a cool text for step one",
-          stepP: "Here we have some other really cool text for step one.",
-          stepIcon: "icon_template.png"
+          stepH3: "Learn Databases remotely",
+          stepP: "You can easily learn Databases wherever you go and whenever you have the time for it.",
+          stepIcon: "icon_access.png"
         },
         {
           stepId: 2,
-          stepH3: "This is a cool text for step two",
-          stepP: "Here we have some other really cool text for step two.",
+          stepH3: "Learn step by step",
+          stepP: "You choose the topic you want to know more about. Learn by simple video tutorials, concrete and relatable examples, and finish off with a fun quiz.",
           stepIcon: "icon_learningpath.png"
         },
         {
           stepId: 3,
-          stepH3: "This is a cool text for step three",
-          stepP: "Here we have some other really cool text for step three.",
-          stepIcon: "icon_access.png"
+          stepH3: "Keep track of your progress",
+          stepP: "See which courses you have completed and keep track of the scores you get from taking the quizzes.",
+          stepIcon: "icon_analytics.png"
         },
         {
           stepId: 4,
-          stepH3: "This is a cool text for step four",
-          stepP: "Here we have some other really cool text for step four.",
-          stepIcon: "icon_analytics.png"
+          stepH3: "Get a cool diploma when you finish a topic",
+          stepP: "Show the diploma to your friends, your colleagues or even to your next job interview.",
+          stepIcon: "icon_template.png"
         }
       ]
     };
@@ -207,7 +207,7 @@ export default {
   methods: {
     goToSignup: function() {
       location.href = "/sign-up";
-    },
-  },
+    }
+  }
 };
 </script>
