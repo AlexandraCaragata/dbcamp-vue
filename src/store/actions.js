@@ -2,7 +2,7 @@ import formDataGenerator from "../services/formDataGenerator";
 import router from "../router/index.js";
 
 const actions = {
-	login({commit}, {username, password}) {
+	verifyUser({commit}, {username, password}) {
 		fetch('http://localhost/db-camp/sessionService/login.php', {
 			method: 'POST',
 			body: formDataGenerator.generate({

@@ -38,8 +38,8 @@ const routes = [
       import(/* webpackChunkName: "about" */ "../views/MyAccount.vue")
   },
   {
-    path: "/welcome",
-    name: "Welcome",
+    path: "/topics",
+    name: "Topics",
     // route level code-splitting
     // this generates a separate chunk (welcome.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
@@ -48,7 +48,7 @@ const routes = [
   },
   {
     path: "/learn-sql",
-    name: "SQL-page",
+    name: "learn-sql",
     // route level code-splitting
     // this generates a separate chunk (.[hash].js) for this route
     // which is lazy-loaded when the route is visited.

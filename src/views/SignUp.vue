@@ -19,7 +19,7 @@
 					<label for="password">Password</label>
 					<input type="password" id="password" placeholder="Password" v-model="password">
 
-					<p>Do you already have an account? Sign in <a href="/login">here</a>.</p>
+					<p>Do you already have an account? Sign in <a @click="$emit('showLogin')">here</a>.</p>
 					<button type="submit">Sign Up</button>
 				</div>
 			</form>
@@ -40,15 +40,13 @@
 
 		a {
 			color: coral;
+			cursor: pointer;
 		}
 
 		p {
 			font-size: 14px ;
 		}
 	}
-
-
-
 </style>
 
 <script>

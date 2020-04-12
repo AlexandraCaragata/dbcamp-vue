@@ -6,7 +6,7 @@
 		<p>{{course.courseTxt}}</p>
 		<div class="progress-container">
 			<div class="quiz-progress" v-if="course.quizProgress">
-				<p>Quiz</p>
+				<p>Quiz score</p>
 				<div class="progress-circle">{{course.quizProgress}}%</div>
 			</div>
 
@@ -70,7 +70,7 @@ h3 {
 }
 
 .progress-circle {
-	border: 1px solid darkgrey;
+	border: 3px solid darkgrey;
 	border-radius: 50%;
 	height: 40px;
 	width: 40px;

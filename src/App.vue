@@ -1,9 +1,11 @@
 <template>
   <div id="app">
-    <NavBar @showLoginModal=showLoginModal()></NavBar>
-    <router-view :class="{ 'opacity': displayLogin }"/>
-    <Login :displayLogin="displayLogin"></Login>
-    <Footer></Footer>
+    <Login :displayLogin="displayLogin" @hideLogin="displayLogin = false"></Login>
+    <div :class="{ 'opacity': displayLogin }">
+      <NavBar @showLoginModal=showLoginModal()></NavBar>
+      <router-view @showLogin="showLoginModal()"/>
+      <Footer></Footer>
+    </div>
   </div>
 </template>
 
@@ -60,6 +62,7 @@
   // this class adds opacity on the page begin the login modal
   .opacity {
     opacity: 40%;
+    pointer-events: none;
   }
 </style>
 
