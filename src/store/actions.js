@@ -13,13 +13,12 @@ const actions = {
 			const body = await response.json();
 
 			if (body.error) {
-				console.log(body.message);
 				return false;
 			}
 
 			if (body.success) {
 				commit('addUser', body.user);
-				router.push({ name: 'MyAccount' });
+				await router.push({ name: 'MyAccount' });
 				return true;
 			}
 		});

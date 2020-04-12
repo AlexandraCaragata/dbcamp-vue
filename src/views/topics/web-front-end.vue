@@ -2,12 +2,12 @@
   <div class="web-front-end-page">
     {{this.apiMessage}}
     <!-- TOPIC: SQL -->
-    <topic
+    <TopicPage
       :topicName="newName"
       :topicIcon="newIcon"
       :topicText="newText"
       :videoTutorials="newTutorials"
-    ></topic>
+    ></TopicPage>
 
     <!-- TAKE-THE-QUIZ SECTION  -->
     <section class="quiz-section">
@@ -74,11 +74,11 @@
 
 
 <script>
-import topic from "@/components/layout/topic";
 import ForumChatBanner from "@/components/layout/ForumChatBanner";
+import TopicPage from "../../components/topics/TopicPage";
 export default {
   name: "web-front-end-page",
-  components: { topic, ForumChatBanner },
+  components: {TopicPage, ForumChatBanner },
   data: function() {
     return {
       apiMessage: "",

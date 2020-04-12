@@ -10,13 +10,11 @@
     </div>
 
     <!-- VIDEO TUTORIALS  -->
-
     <div class="tutorial-wrapper">
       <div
         class="video-tutorial"
         v-for="tutorial in videoTutorials"
-        v-bind:key="tutorial.tutorialId"
-      >
+        v-bind:key="tutorial.tutorialId">
         <iframe
           :src="tutorial.videoLink"
           frameborder="0"
@@ -79,12 +77,7 @@ iframe {
 
 <script>
 export default {
-  name: "topic.vue",
-  data: function() {
-    return {
-      apiMessage: ""
-    };
-  },
+  name: "TopicPage",
   props: {
     topicName: {
       type: String,

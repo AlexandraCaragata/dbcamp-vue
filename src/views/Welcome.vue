@@ -1,24 +1,18 @@
 <template>
   <div class="welcome">
-    {{this.apiMessage}}
     <section>
       <h1>
-        Welcome
-        <strong>{{userName}}</strong>
+        Welcome <strong>{{userName}}</strong>
       </h1>
+
       <!-- COURSES/TOPICS SECTION -->
       <div class="allCourses">
-        <div
-          class="course"
+        <TopicBox
           v-for="course in courses"
-          v-bind:key="course.courseId"
-          v-on:click="location.href=url(`http://localhost:8080/${course.courseLink}`)"
-        >
-          <img :src="require(`../assets/icons/${course.courseIcon}`)" alt="icon" />
-          <h3>Course</h3>
-          <h2>{{course.courseTitle}}</h2>
-          <p>{{course.courseTxt}}</p>
-        </div>
+          :course="course"
+          :key="course.courseId"
+          @click="location.href = url(`http://localhost:8080/${course.courseLink}`)">
+        </TopicBox>
       </div>
 
       <!-- FORUM SECTION -->
@@ -29,54 +23,27 @@
 
 <style lang="scss">
 section {
-  margin: 0px 13vw;
+  margin: 0 13vw;
 }
+
 h1 {
   font-weight: 100;
   text-align: left;
 }
 
 // COURSES/TOPICS
-
 .allCourses {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-}
-.course {
-  border: 2px solid #d3cecb;
-  padding: 10px;
-  margin: 25px 50px 25px 0px;
-  border-radius: 5px;
-  cursor: pointer;
-}
-.course > p {
-  font-weight: 100;
-}
-.course > h2 {
-  font-weight: 400;
-}
-.course > h3 {
-  font-weight: 600;
-  font-size: 14px;
-}
-
-.course > h2,
-h3 {
-  margin: 0;
-  text-align: left;
-}
-.course > img {
-  position: absolute;
-  margin-top: -3.5vw;
-  margin-left: 16vw;
 }
 </style>
 
 <script>
 import ForumChatBanner from "@/components/layout/ForumChatBanner";
+import TopicBox from "../components/topics/TopicBox";
 export default {
   name: "Welcome",
-  components: { ForumChatBanner },
+  components: {TopicBox, ForumChatBanner },
   data: function() {
     return {
       apiMessage: "",
