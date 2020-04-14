@@ -7,12 +7,16 @@
 		<div class="progress-container">
 			<div class="quiz-progress" v-if="course.quizProgress">
 				<p>Quiz score</p>
-				<div class="progress-circle">{{course.quizProgress}}%</div>
+				<div class="progress-circle">
+					<p>{{course.quizProgress}}%</p>
+					</div>
 			</div>
 
 			<div class="video-progress" v-if="course.videoProgress">
 				<p>Course</p>
-				<div class="progress-circle">{{course.videoProgress}}%</div>
+				<div class="progress-circle">
+					<p>{{course.videoProgress}}%</p>
+					</div>
 			</div>
 		</div>
 	</div>
@@ -74,6 +78,11 @@ h3 {
 	border-radius: 50%;
 	height: 40px;
 	width: 40px;
+	margin: auto;
+}
+.progress-circle > p {
+    margin: 8px auto;
+    text-align: center;
 }
 
 </style>
