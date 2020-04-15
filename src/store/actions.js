@@ -22,7 +22,7 @@ const actions = {
 				return true;
 			}
 		});
-	}
+	},
 };
 
 export default actions;

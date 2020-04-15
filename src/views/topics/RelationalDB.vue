@@ -1,6 +1,5 @@
 <template>
   <div class="rational-database-page">
-    {{this.apiMessage}}
     <!-- TOPIC: SQL -->
     <TopicPage
       :topicName="newName"
@@ -76,12 +75,14 @@
 <script>
 import ForumChatBanner from "@/components/layout/ForumChatBanner";
 import TopicPage from "../../components/topics/TopicPage";
+import router from "../../router";
+import {mapActions} from "vuex";
+
 export default {
-  name: "rational-database-page",
-  components: {TopicPage, ForumChatBanner },
+  name: "RelationalDB",
+  components: { TopicPage, ForumChatBanner },
   data: function() {
     return {
-      apiMessage: "",
       newName: "Rational Database",
       newIcon: "purple.png",
       newText:
@@ -112,8 +113,11 @@ export default {
     };
   },
   methods: {
+    ...mapActions([
+       'fetchQuiz',
+    ]),
     goToQuiz: function() {
-      location.href = "/rational-database-quiz";
+      router.push({ name: 'quiz', params: { quizId: 1 }});
     }
   }
 };

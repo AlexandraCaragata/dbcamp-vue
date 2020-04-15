@@ -47,26 +47,17 @@ const routes = [
       import(/* webpackChunkName: "Welcome" */ "../views/Welcome.vue"),
   },
   {
-    path: "/learn-sql",
-    name: "learn-sql",
+    path: "/learn-relational-database",
+    name: "relationalDatabase",
     // route level code-splitting
     // this generates a separate chunk (.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () =>
-      import(/* webpackChunkName: "" */ "../views/topics/SQL.vue"),
-  },
-  {
-    path: "/learn-rational-database",
-    name: "rational-database-page",
-    // route level code-splitting
-    // this generates a separate chunk (.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "" */ "../views/topics/rational-db.vue"),
+      import(/* webpackChunkName: "" */ "../views/topics/RelationalDB.vue"),
   },
   {
     path: "/learn-database-normalisation",
-    name: "db-normalisation-page",
+    name: "dbNormalisation",
     // route level code-splitting
     // this generates a separate chunk (.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
@@ -75,7 +66,7 @@ const routes = [
   },
   {
     path: "/learn-entity-diagram",
-    name: "entity-diagram-page",
+    name: "entityDiagram",
     // route level code-splitting
     // this generates a separate chunk (.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
@@ -83,8 +74,26 @@ const routes = [
       import(/* webpackChunkName: "" */ "../views/topics/entity-diagram.vue"),
   },
   {
+    path: "/learn-sql",
+    name: "sql",
+    // route level code-splitting
+    // this generates a separate chunk (.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () =>
+      import(/* webpackChunkName: "" */ "../views/topics/SQL.vue"),
+  },
+  {
+    path: "/learn-how-to-install-a-relational-database",
+    name: "installRelationalDatabase",
+    // route level code-splitting
+    // this generates a separate chunk (.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () =>
+      import(/* webpackChunkName: "" */ "../views/topics/SQL.vue"),
+  },
+  {
     path: "/learn-web-front-end",
-    name: "web-front-end-page",
+    name: "webFrontEnd",
     // route level code-splitting
     // this generates a separate chunk (.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
@@ -92,8 +101,8 @@ const routes = [
       import(/* webpackChunkName: "" */ "../views/topics/web-front-end.vue"),
   },
   {
-    path: "/sql-quiz",
-    name: "Quiz",
+    path: "/quiz/:quizId",
+    name: "quiz",
     // route level code-splitting
     // this generates a separate chunk (.[hash].js) for this route
     // which is lazy-loaded when the route is visited.

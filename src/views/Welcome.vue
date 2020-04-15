@@ -59,7 +59,7 @@ export default {
   },
   methods: {
     goToTopic: function (link) {
-      router.push({name: link});
+      router.push({ name: link });
     }
   }
 };

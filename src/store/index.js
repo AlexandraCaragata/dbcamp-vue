@@ -9,133 +9,47 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     user: null,
-    quizzes: [
-      {
-        title: 'SQL',
-        questions: [
-          {
-            title: 'something?',
-            answer1: 'answer1',
-            answer2: 'answer2',
-            answer3: 'answer3',
-            correctAnswer: 'answer1',
-            answered: true,
-          },
-          {
-            title: 'something?',
-            answer1: 'answer1',
-            answer2: 'answer2',
-            answer3: 'answer3',
-            correctAnswer: 'answer1',
-            answered: false,
-          },
-          {
-            title: 'something?',
-            answer1: 'answer1',
-            answer2: 'answer2',
-            answer3: 'answer3',
-            correctAnswer: 'answer1',
-            answered: false,
-          },
-          {
-            title: 'something?',
-            answer1: 'answer1',
-            answer2: 'answer2',
-            answer3: 'answer3',
-            correctAnswer: 'answer1',
-            answered: false,
-          },
-          {
-            title: 'something?',
-            answer1: 'answer1',
-            answer2: 'answer2',
-            answer3: 'answer3',
-            correctAnswer: 'answer1',
-            answered: false,
-          },
-          {
-            title: 'something?',
-            answer1: 'answer1',
-            answer2: 'answer2',
-            answer3: 'answer3',
-            correctAnswer: 'answer1',
-            answered: false,
-          },
-          {
-            title: 'something?',
-            answer1: 'answer1',
-            answer2: 'answer2',
-            answer3: 'answer3',
-            correctAnswer: 'answer1',
-            answered: false,
-          },
-          {
-            title: 'something?',
-            answer1: 'answer1',
-            answer2: 'answer2',
-            answer3: 'answer3',
-            correctAnswer: 'answer1',
-            answered: false,
-          },
-          {
-            title: 'something?',
-            answer1: 'answer1',
-            answer2: 'answer2',
-            answer3: 'answer3',
-            correctAnswer: 'answer1',
-            answered: false,
-          },
-          {
-            title: 'something?',
-            answer1: 'answer1',
-            answer2: 'answer2',
-            answer3: 'answer3',
-            correctAnswer: 'answer1',
-            answered: false,
-          },
-        ],
-      },
-    ],
     courses: [
       {
         courseId: 1,
-        courseTitle: "SQL",
+        courseTitle: "Relational Databases",
         courseTxt:
           "Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, obcaecati possimus laboriosam similique.",
         courseIcon: "pink.png",
-        courseLink: "learn-sql"
+        courseLink: "relationalDatabase",
+        quizId: 1,
       },
       {
         courseId: 2,
-        courseTitle: "Rational Database",
+        courseTitle: "Database normalization",
         courseTxt:
           "Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, obcaecati possimus laboriosam similique.",
         courseIcon: "purple.png",
-        courseLink: "learn-sql"
+        courseLink: "dbNormalisation"
       },
       {
         courseId: 3,
-        courseTitle: "Database Normalisation",
+        courseTitle: "Entity relationship diagram",
         courseTxt:
           "Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, obcaecati possimus laboriosam similique.",
         courseIcon: "dark-blue.png",
-        courseLink: "learn-sql"
+        courseLink: "entityDiagram"
       },
       {
         courseId: 4,
-        courseTitle: "Entity Diagram",
+        courseTitle: "SQL",
         courseTxt:
           "Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, obcaecati possimus laboriosam similique.",
         courseIcon: "skin-color.png",
-        courseLink: "learn-sql"
+        courseLink: "sql"
       },
       {
         courseId: 5,
-        courseTitle: "Web Front End",
+        courseTitle: "Install a relational database",
         courseTxt:
           "Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, obcaecati possimus laboriosam similique.",
         courseIcon: "salmon.png",
-        courseLink: "learn-sql"
+        courseLink: "installRelationalDatabase"
       },
       {
         courseId: 6,
@@ -143,7 +57,7 @@ export default new Vuex.Store({
         courseTxt:
           "Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, obcaecati possimus laboriosam similique.",
         courseIcon: "yellow.png",
-        courseLink: "learn-sql"
+        courseLink: "webFrontEnd"
       }
     ],
   },

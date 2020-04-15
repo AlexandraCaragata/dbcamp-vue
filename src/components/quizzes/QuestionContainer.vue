@@ -1,18 +1,18 @@
 <template>
 	<div class="question-container">
 		<div>Question {{this.position}} of {{this.total}}</div>
-		<h2>{{this.question.title}}</h2>
+		<h2>{{this.question.text}}</h2>
 		<label class="answer-label">
-			<input type="radio" :value="question.answer1" v-model="picked">
-			{{this.question.answer1}}
+			<input type="radio" :value="question.answer_1" v-model="picked">
+			{{this.question.answer_1}}
 		</label>
 		<label class="answer-label">
-			<input type="radio" :value="question.answer2" v-model="picked">
-			{{this.question.answer2}}
+			<input type="radio" :value="question.answer_2" v-model="picked">
+			{{this.question.answer_2}}
 		</label>
 		<label class="answer-label">
-			<input type="radio" :value="question.answer3" v-model="picked">
-			{{this.question.answer3}}
+			<input type="radio" :value="question.answer_3" v-model="picked">
+			{{this.question.answer_3}}
 		</label>
 		<button class="button" @click="submitAnswer()">{{this.position === this.total ? 'Finish quiz' : 'Submit answer'}}</button>
 	</div>
@@ -35,15 +35,12 @@
 			total: Number,
 		},
 		methods: {
-			...mapMutations([
-				'markQuestionAnswered',
-			]),
 			submitAnswer: function () {
-				if (this.picked === this.question.correctAnswer) {
+				if (this.picked === this.question.correct_answer) {
 					this.score += 1;
 				}
 
-				this.markQuestionAnswered(this.question);
+				this.$emit('markQuestionAnswered');
 				this.picked = null;
 
 				if (this.position === this.total) {
