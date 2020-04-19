@@ -2,21 +2,21 @@
   <div>
     <h1>Contact us</h1>
     <div>
-      <form id="sendEmail" @submit.prevent="sendEmail">
+      <form id="sendEmail">
         <div class="form-container">
           <label for="contact-name">Name</label>
-          <input type="text" name="contact-name" placeholder="Name" v-model="contactName" />
+          <input type="text" name="contact-name" placeholder="Name" />
 
           <label for="email">Email</label>
-          <input type="text" name="email" placeholder="Email" v-model="email" />
+          <input type="text" name="email" placeholder="Email" />
 
-          <label for="contact-phone">Phone</label>
-          <input type="text" name="contact-phone" placeholder="Phone" v-model="contactPhone" />
+          <label for="subject">Subject</label>
+          <input type="text" name="subject" placeholder="Subject" />
 
           <label for="contactInput">Type Here</label>
-          <input type="text" name="contactInput" placeholder="Type Here" v-model="contactInput" />
+          <input type="text" name="contactInput" placeholder="Type Here" />
 
-          <button type="submit">Send</button>
+          <button type="button" onclick="send()">Send Email</button>
         </div>
       </form>
     </div>
@@ -74,36 +74,19 @@ button {
 </style>
 
 <script>
+  async function send() {
+    //We're triggering the form through javascript
+    var oForm = document.querySelector("#sendEmail");
 
-export default {
-  name: "Contact",
-
-  data: function() {
-    return {
-      contactName: "",
-      email: "",
-      contactPhone: "",
-      contactInput: ""
-    };
-  },
-
-  methods: {
-    sendEmail: async function() {
-      const oForm = new FormData();
-
-      oForm.append("contactName", this.contactName);
-      oForm.append("email", this.email);
-      oForm.append("contactPhone", this.contactPhone);
-      oForm.append("contactInput", this.contactInput);
-
-      await fetch(
-        "http://localhost:8080/dbcamp-server/emailService/api-send-email.php",
-        {
-          method: "POST",
-          body: oForm
-        }
-      );
-    }
+    var jConnection = await fetch(
+      "http://localhost:8080/dbcamp-server/emailService/api-send-email.php",
+      {
+        method: "POST",
+        body: new FormData(oForm)
+      }
+    );
+    //This could also be.json
+    var sData = await jConnection.text();
+    console.log(sData);
   }
-};
 </script>
