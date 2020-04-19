@@ -1,5 +1,6 @@
 import formDataGenerator from "../services/formDataGenerator";
 import router from "../router/index.js";
+import MyAccount from "../views/MyAccount";
 
 const actions = {
 	verifyUser({commit}, {username, password}) {

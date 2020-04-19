@@ -74,6 +74,7 @@ button {
 </style>
 
 <script>
+
 export default {
   name: "Contact",
 

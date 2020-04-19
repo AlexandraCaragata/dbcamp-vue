@@ -14,7 +14,7 @@
 				<router-link to="/forum">Forum</router-link>
 				<router-link to="/my-account">My Account</router-link>
 				<router-link to="/contact">Contact</router-link>
-				<router-link to="/logout">Logout</router-link>
+				<a @click="logout">Logout</a>
 			</div>
 		</div>
 	</nav>
@@ -46,7 +46,7 @@
 		}
 	}
 
-	.not-logged-in-pages {
+	.not-logged-in-pages, .logged-in-pages {
 		a {
 			cursor: pointer;
 		}
@@ -54,7 +54,8 @@
 </style>
 
 <script>
-import { mapGetters } from "vuex";
+	import {mapGetters, mapMutations} from "vuex";
+	import router from "../../router";
 
 export default {
 	name: "NavBar",
@@ -62,6 +63,15 @@ export default {
 		...mapGetters([
 			'getUser'
 		]),
+	},
+	methods: {
+		...mapMutations([
+			'removeUser'
+		]),
+		logout: function () {
+			this.removeUser();
+			router.push({ name: 'Home'});
+		}
 	}
 }
 </script>

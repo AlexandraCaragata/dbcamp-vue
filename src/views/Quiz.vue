@@ -14,6 +14,7 @@
 import QuestionContainer from "../components/quizzes/QuestionContainer";
 import router from "../router";
 import formDataGenerator from "../services/formDataGenerator";
+import {mapGetters} from "vuex";
 export default {
 	name: "Quiz",
 	data: function () {
@@ -29,9 +30,17 @@ export default {
 		// since this one is a computed method it will automatically update the question object when the position changes
 		question() {
 			return this.quiz.questions[this.questionNumber - 1];
-		}
+		},
+		...mapGetters([
+			'getUser',
+		]),
 	},
-	created() {
+	mounted() {
+		if (!this.getUser) {
+			router.push({ name: 'Home' });
+			return;
+		}
+
 		// this method will trigger automatically the moment this page gets loaded
 		this.quizId = 1;
 

@@ -54,8 +54,14 @@ export default {
   },
   computed: {
     ...mapGetters([
-       'getCourses'
+      'getCourses',
+      'getUser'
     ]),
+  },
+  mounted() {
+    if (!this.getUser) {
+      router.push({ name: 'Home' });
+    }
   },
   methods: {
     goToTopic: function (link) {
