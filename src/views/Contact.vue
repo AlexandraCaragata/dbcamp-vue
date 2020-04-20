@@ -2,7 +2,7 @@
   <div>
     <h1>Contact us</h1>
     <div>
-      <form id="sendEmail">
+      <form id="sendEmail" @submit.prevent="sendEmail">
         <div class="form-container">
           <label for="contact-name">Name</label>
           <input type="text" name="contact-name" placeholder="Name" />
@@ -16,7 +16,7 @@
           <label for="contactInput">Type Here</label>
           <input type="text" name="contactInput" placeholder="Type Here" />
 
-          <button type="button" onclick="send()">Send Email</button>
+          <button type="submit">Send Email</button>
         </div>
       </form>
     </div>
@@ -63,7 +63,7 @@ button {
   margin: 0 auto;
   width: 600px;
   height: 3em;
-
+  cursor: pointer;
   border-radius: 5px;
   border: none;
   background-color: #354865;
@@ -74,19 +74,23 @@ button {
 </style>
 
 <script>
-  async function send() {
-    //We're triggering the form through javascript
-    var oForm = document.querySelector("#sendEmail");
-
-    var jConnection = await fetch(
-      "http://localhost:8080/dbcamp-server/emailService/api-send-email.php",
-      {
-        method: "POST",
-        body: new FormData(oForm)
-      }
-    );
-    //This could also be.json
-    var sData = await jConnection.text();
-    console.log(sData);
+export default {
+  name: "SignUp",
+  methods: {
+    sendEmail: async function() {
+      var oForm = document.querySelector("#sendEmail");
+      console.log(new FormData(oForm));
+      var jConnection = await fetch(
+        "http://192.168.64.2/dbcamp-server/emailService/api-send-email.php",
+        {
+          method: "POST",
+          body: new FormData(oForm)
+        }
+      );
+      //This could also be.json
+      var sData = await jConnection.text();
+      console.log(sData);
+    }
   }
+};
 </script>
