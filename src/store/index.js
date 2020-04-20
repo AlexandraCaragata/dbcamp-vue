@@ -10,6 +10,7 @@ export default new Vuex.Store({
   state: {
     user: null,
     topics: null,
+    diplomas: null,
   },
   mutations,
   actions,

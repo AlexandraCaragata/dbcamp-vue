@@ -9,6 +9,9 @@ const mutations = {
 	},
 	addTopics(state, topics) {
 		state.topics = topics;
+	},
+	addDiplomas(state, diplomas) {
+		state.diplomas = diplomas;
 	}
 };
 

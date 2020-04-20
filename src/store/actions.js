@@ -39,6 +39,22 @@ const actions = {
 				}
 			}
 		)
+	},
+	fetchDiplomas ({commit}, userId) {
+		fetch(`http://localhost/db-camp/databaseConnections/diplomas/get-diplomas-for-user.php?userId=${userId}`).then(
+			async (response) => {
+				const body = await response.json();
+
+				if (body.error) {
+					return false;
+				}
+
+				if (body.success) {
+					commit('addDiplomas', body.diplomas);
+					return true;
+				}
+			}
+		)
 	}
 };
 

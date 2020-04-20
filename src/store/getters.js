@@ -10,6 +10,12 @@ const getters = {
 	},
 	haveTopicsLoaded: (state) => {
 		return state.topics !== null;
+	},
+	getDiplomas: (state) => {
+		return state.diplomas;
+	},
+	haveDiplomasLoaded: (state) => {
+		return state.diplomas !== null;
 	}
 };
 

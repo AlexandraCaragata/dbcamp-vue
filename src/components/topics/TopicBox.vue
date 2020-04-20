@@ -5,10 +5,10 @@
 		<h2>{{topic.name}}</h2>
 		<p>{{topic.description}}</p>
 		<div class="progress-container">
-			<div class="quiz-progress" v-if="topic.quizProgress">
+			<div class="quiz-progress" v-if="topic.quizScore">
 				<p>Quiz score</p>
 				<div class="progress-circle">
-					<p>{{topic.quizProgress}}%</p>
+					<p>{{topic.quizScore}}%</p>
 					</div>
 			</div>
 
