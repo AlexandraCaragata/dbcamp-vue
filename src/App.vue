@@ -79,15 +79,18 @@
         displayLogin: false,
       }
     },
-    mounted() {
+    async mounted() {
       if (localStorage.user) {
         this.addUser(JSON.parse(localStorage.user));
-        router.push({ name: 'MyAccount' });
+        await this.fetchTopics();
       }
     },
     methods: {
       ...mapMutations([
           'addUser',
+      ]),
+      ...mapActions([
+        'fetchTopics'
       ]),
       showLoginModal: function () {
         this.displayLogin = true;

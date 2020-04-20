@@ -1,9 +1,9 @@
 <template>
-  <div class="rational-database-page">
-    <!-- TOPIC: SQL -->
+  <div class="rational-database-page" v-if="topic">
+    <!-- TOPIC: RelationalDB -->
     <TopicPage
-      :topicName="newName"
-      :topicIcon="newIcon"
+      :topicName="topic.name"
+      :topicIcon="topic.iconName"
       :topicText="newText"
       :videoTutorials="newTutorials"
     ></TopicPage>
@@ -76,15 +76,13 @@
 import ForumChatBanner from "@/components/layout/ForumChatBanner";
 import TopicPage from "../../components/topics/TopicPage";
 import router from "../../router";
-import {mapActions} from "vuex";
+import { mapGetters } from "vuex";
 
 export default {
   name: "RelationalDB",
   components: { TopicPage, ForumChatBanner },
   data: function() {
     return {
-      newName: "Rational Database",
-      newIcon: "purple.png",
       newText:
         "Kt vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.",
       newTutorials: [
@@ -112,12 +110,20 @@ export default {
       ]
     };
   },
-  methods: {
-    ...mapActions([
-       'fetchQuiz',
+  computed: {
+    ...mapGetters([
+      'getTopicByLink',
+      'haveTopicsLoaded',
     ]),
+    topic() {
+      if (this.haveTopicsLoaded) {
+        return this.getTopicByLink(this.$route.name);
+      }
+    }
+  },
+  methods: {
     goToQuiz: function() {
-      router.push({ name: 'quiz', params: { quizId: 1 }});
+      router.push({ name: 'quiz', params: { quizId: this.topic.quiz_id }});
     }
   }
 };

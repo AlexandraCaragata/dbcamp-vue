@@ -24,6 +24,22 @@ const actions = {
 			}
 		});
 	},
+	fetchTopics ({commit}) {
+		fetch('http://localhost/db-camp/databaseConnections/topics/get-topics.php').then(
+			async (response) => {
+				const body = await response.json();
+
+				if (body.error) {
+					return false;
+				}
+
+				if (body.success) {
+					commit('addTopics', body.topics);
+					return true;
+				}
+			}
+		)
+	}
 };
 
 export default actions;

@@ -19,9 +19,7 @@ export default {
 	name: "Quiz",
 	data: function () {
 		return {
-			topic: 'SQL',
 			quiz: null,
-			quizId: null,
 			questionNumber: 1,
 		};
 	},
@@ -41,11 +39,8 @@ export default {
 			return;
 		}
 
-		// this method will trigger automatically the moment this page gets loaded
-		this.quizId = 1;
-
 		// here it calls the API and gets all the necessary information for the quiz: quiz title and questions
-		fetch(`http://localhost/db-camp/databaseConnections/quizzes/get-quiz.php?quizId=${this.quizId}`)
+		fetch(`http://localhost/db-camp/databaseConnections/quizzes/get-quiz.php?quizId=${this.$route.params.quizId}`)
 			.then(async (response) => {
 			const body = await response.json();
 
@@ -64,11 +59,11 @@ export default {
 				body: formDataGenerator.generate({
 					quizId: this.quiz.id,
 					quizScore: score * 10,
-					userId: 1, // TODO make this dynamic
+					userId: this.getUser.id,
 				}),
 			});
 
-			router.push({ name: 'MyAccount' });
+			await router.push({ name: 'MyAccount' });
 		}
 	}
 }

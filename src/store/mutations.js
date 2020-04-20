@@ -6,6 +6,9 @@ const mutations = {
 	removeUser(state) {
 		state.user = null;
 		localStorage.removeItem('user');
+	},
+	addTopics(state, topics) {
+		state.topics = topics;
 	}
 };
 
