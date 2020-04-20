@@ -204,4 +204,20 @@ button {
 </style>
 
 <script>
+import router from "../router";
+import {mapGetters} from "vuex";
+
+export default {
+  name: 'Forum',
+  computed: {
+    ...mapGetters([
+        'getUser',
+    ])
+  },
+  mounted() {
+    if (!this.getUser) {
+      router.push({ name: 'Home' });
+    }
+  },
+}
 </script>

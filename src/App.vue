@@ -70,6 +70,8 @@
   import NavBar from '@/components/layout/NavBar';
   import Footer from '@/components/layout/Footer';
   import Login from "./components/Login";
+  import {mapActions, mapMutations} from "vuex";
+  import router from "./router";
   export default {
     components: { Login, Footer, NavBar },
     data: function () {
@@ -77,8 +79,19 @@
         displayLogin: false,
       }
     },
-
+    async mounted() {
+      if (localStorage.user) {
+        this.addUser(JSON.parse(localStorage.user));
+        await this.fetchTopics();
+      }
+    },
     methods: {
+      ...mapMutations([
+          'addUser',
+      ]),
+      ...mapActions([
+        'fetchTopics'
+      ]),
       showLoginModal: function () {
         this.displayLogin = true;
       }

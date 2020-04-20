@@ -2,16 +2,16 @@
   <div class="welcome">
     <section>
       <h1>
-        Welcome <strong>{{userName}}</strong>
+        Welcome <strong>{{getUsername}}</strong>
       </h1>
 
       <!-- COURSES/TOPICS SECTION -->
-      <div class="allCourses">
+      <div class="allCourses" v-if="haveTopicsLoaded && getTopics">
         <TopicBox
-          v-for="course in getCourses"
-          :course="course"
-          :key="course.courseId"
-          @click.native="goToTopic(course.courseLink)">
+          v-for="topic in getTopics"
+          :topic="topic"
+          :key="topic.id"
+          @click.native="goToTopic(topic.link)">
         </TopicBox>
       </div>
 
@@ -41,21 +41,26 @@ h1 {
 <script>
 import ForumChatBanner from "@/components/layout/ForumChatBanner";
 import TopicBox from "../components/topics/TopicBox";
-import {mapGetters} from "vuex";
+import { mapActions, mapGetters } from "vuex";
 import router from "../router";
 
 export default {
   name: "Welcome",
-  components: {TopicBox, ForumChatBanner },
-  data: function() {
-    return {
-      userName: "Amanda",
-    };
-  },
+  components: { TopicBox, ForumChatBanner },
   computed: {
     ...mapGetters([
-       'getCourses'
+      'getTopics',
+      'getUser',
+      'haveTopicsLoaded'
     ]),
+    getUsername() {
+      return this.getUser.username;
+    }
+  },
+  async mounted() {
+    if (!this.getUser) {
+      await router.push({ name: 'Home' });
+    }
   },
   methods: {
     goToTopic: function (link) {

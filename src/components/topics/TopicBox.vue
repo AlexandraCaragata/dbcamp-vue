@@ -1,21 +1,21 @@
 <template>
 	<div class="course">
-		<img :src="require(`../../assets/icons/${course.courseIcon}`)" alt="icon" />
+		<img :src="require(`../../assets/icons/${topic.iconName}`)" alt="icon" />
 		<h3>Course</h3>
-		<h2>{{course.courseTitle}}</h2>
-		<p>{{course.courseTxt}}</p>
+		<h2>{{topic.name}}</h2>
+		<p>{{topic.description}}</p>
 		<div class="progress-container">
-			<div class="quiz-progress" v-if="course.quizProgress">
+			<div class="quiz-progress" v-if="topic.quizProgress">
 				<p>Quiz score</p>
 				<div class="progress-circle">
-					<p>{{course.quizProgress}}%</p>
+					<p>{{topic.quizProgress}}%</p>
 					</div>
 			</div>
 
-			<div class="video-progress" v-if="course.videoProgress">
+			<div class="video-progress" v-if="topic.videoProgress">
 				<p>Course</p>
 				<div class="progress-circle">
-					<p>{{course.videoProgress}}%</p>
+					<p>{{topic.videoProgress}}%</p>
 					</div>
 			</div>
 		</div>
@@ -26,8 +26,8 @@
 	export default {
 		name: "TopicBox",
 		props: {
-			course: Object,
-		}
+			topic: Object,
+		},
 	}
 </script>
 

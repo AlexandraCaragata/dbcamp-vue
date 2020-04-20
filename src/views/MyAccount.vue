@@ -21,6 +21,8 @@
 <script>
 	import ForumChatBanner from "@/components/layout/ForumChatBanner";
 	import TopicBox from "../components/topics/TopicBox";
+	import {mapGetters} from "vuex";
+	import router from "../router";
 
 	export default {
 		name: "MyAccount.vue",
@@ -91,7 +93,17 @@
 					}
 				]
 			};
-		}
+		},
+		computed: {
+			...mapGetters([
+				'getUser',
+			])
+		},
+		mounted() {
+			if (!this.getUser) {
+				router.push({ name: 'Home' });
+			}
+		},
 	}
 </script>
 

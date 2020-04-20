@@ -1,10 +1,9 @@
 <template>
-  <div class="db-norm-page">
-    {{this.apiMessage}}
-    <!-- TOPIC: SQL -->
+  <div class="db-norm-page" v-if="haveTopicsLoaded">
+    <!-- TOPIC: DB Normalization -->
     <TopicPage
-      :topicName="newName"
-      :topicIcon="newIcon"
+      :topicName="topic.name"
+      :topicIcon="topic.iconName"
       :topicText="newText"
       :videoTutorials="newTutorials"
     ></TopicPage>
@@ -76,14 +75,13 @@
 <script>
 import ForumChatBanner from "@/components/layout/ForumChatBanner";
 import TopicPage from "../../components/topics/TopicPage";
+import {mapGetters} from "vuex";
+import router from "../../router";
 export default {
   name: "db-normalisation-page",
   components: {TopicPage, ForumChatBanner },
   data: function() {
     return {
-      apiMessage: "",
-      newName: "Database Normalisation",
-      newIcon: "dark-blue.png",
       newText:
         "Kt vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.",
       newTutorials: [
@@ -111,9 +109,20 @@ export default {
       ]
     };
   },
+  computed: {
+    ...mapGetters([
+      'getTopicByLink',
+      'haveTopicsLoaded',
+    ]),
+    topic() {
+      if (this.haveTopicsLoaded) {
+        return this.getTopicByLink(this.$route.name);
+      }
+    }
+  },
   methods: {
     goToQuiz: function() {
-      location.href = "/database-normalisation-quiz";
+      router.push({ name: 'quiz', params: { quizId: this.topic.quiz_id }});
     }
   }
 };
