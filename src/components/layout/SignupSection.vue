@@ -14,7 +14,7 @@
 <style>
 .signup-section {
   background-color: #d3cecb;
-  padding: 10px;
+  padding: 20px;
 }
 .signup-container {
   margin: auto;
@@ -31,21 +31,26 @@
   margin-top: 0;
   font-size: 25px;
 }
-@media screen and (min-width: 970px) {
+
+@media screen and (min-width: 450px) {
   .signup-section {
-    background-color: #d3cecb;
     padding: 30px;
   }
+  .signup-container {
+    width: 400px;
+  }
+
+}
+
+
+@media screen and (min-width: 970px) {
+
   .signup-container {
     width: 800px;
   }
   .signup-text {
     width: 450px;
-    color: black;
-    margin: auto;
-    line-height: 1.5;
     font-size: 18px;
-    text-align: center;
   }
   .signup-text > h2 {
     margin-top: 0;

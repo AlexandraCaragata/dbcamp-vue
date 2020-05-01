@@ -32,6 +32,20 @@
   padding: 10px;
   font-size: 16px;
 }
+
+@media screen and (min-width: 450px) {
+    .bottom-container {
+    margin-bottom: 100px;
+  }
+  .bottom-text {
+    width: 600px;
+    top: 80%;
+    left: 50%;
+    padding: 20px;
+    font-size: 22px;
+  }
+
+}
 @media screen and (min-width: 970px) {
   .bottom-container {
     margin-bottom: 250px;

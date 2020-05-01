@@ -95,14 +95,33 @@ p {
 .step > .icon {
   width: 100%;
   height: 100%;
-  min-width: 100px;
+  max-width: 70px;
 }
 
-
-// BOTTOM SECTION
+@media screen and (min-width: 450px) {
+  // SPLASH SECTION
+.splash-container {
+  height: 440px;
+}
+  .splash-text {
+    padding-left: 10vh;
+    width: 300px;
+  }
+    // STEPS SECTION
+  .steps-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .step > .icon {
+  min-width: 130px;
+}
+}
 
 @media screen and (min-width: 970px) {
   // SPLASH SECTION
+  .splash-container {
+  height: 650px;
+}
   .splash-text > h1 {
     font-size: 45px;
   }
@@ -123,6 +142,10 @@ p {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
   }
+  .step > .icon {
+  min-width: 180px;
+}
+
 }
 </style>
 <script>
