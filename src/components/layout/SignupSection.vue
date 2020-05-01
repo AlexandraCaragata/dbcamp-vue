@@ -34,22 +34,22 @@
 @media screen and (min-width: 970px) {
   .signup-section {
     background-color: #d3cecb;
-    padding: 10px;
+    padding: 30px;
   }
   .signup-container {
     width: 800px;
   }
   .signup-text {
-    width: 350px;
+    width: 450px;
     color: black;
     margin: auto;
     line-height: 1.5;
     font-size: 18px;
+    text-align: center;
   }
   .signup-text > h2 {
-    text-align: left;
     margin-top: 0;
-    font-size: 25px;
+    font-size: 35px;
   }
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
   <div class="welcome">
-    <section>
+    <div class="wrapper">
       <h1>
         Welcome <strong>{{getUsername}}</strong>
       </h1>
@@ -17,12 +17,12 @@
 
       <!-- FORUM SECTION -->
       <ForumChatBanner></ForumChatBanner>
-    </section>
+    </div>
   </div>
 </template>
 
 <style lang="scss">
-section {
+.wrapper {
   margin: 0 13vw;
 }
 

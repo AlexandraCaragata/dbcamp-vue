@@ -59,7 +59,7 @@
 
 .btn-goToSignup {
   background-color: #354865;
-  width: 120px;
+  width: 200px;
   height: 40px;
   color: white;
   font-size: 16px;
@@ -98,50 +98,7 @@ p {
   min-width: 100px;
 }
 
-// SIGN UP SECTION
-.signup-section {
-  background-color: #d3cecb;
-  padding: 20px;
-}
-.signup-container {
-  width: 800px;
-  margin: auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-}
-.signup-text {
-  width: 350px;
-  color: black;
-  margin: auto;
-  line-height: 1.5;
-  font-size: 20px;
-}
-.signup-text > h2 {
-  text-align: left;
-  margin-top: 0;
-  font-size: 35px;
-}
-.signup-form {
-  margin: auto;
-  color: black;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  font-size: 20px;
-}
-.signup-form > form {
-  display: grid;
-}
-label {
-  text-align: left;
-}
-input {
-  width: 300px;
-  padding: 12px 20px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-  margin-bottom: 10px;
-}
+
 // BOTTOM SECTION
 
 @media screen and (min-width: 970px) {

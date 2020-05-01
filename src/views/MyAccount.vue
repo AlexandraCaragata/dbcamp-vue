@@ -1,5 +1,5 @@
 <template>
-	<section>
+	<section class="wrapper">
 		<h1>
 			Welcome <strong>{{getUsername}}</strong>
 		</h1>
@@ -54,7 +54,7 @@
 </script>
 
 <style lang="scss">
-section {
+.wrapper {
 	margin: 0 13vw;
 }
 
