@@ -25,7 +25,6 @@
     <!-- SIGN UP SECTION -->
     <SignupSection></SignupSection>
 
-    <div class="gap"></div>
     <!-- BOTTOM SECTION -->
     <VisionMission></VisionMission>
   </div>
@@ -56,10 +55,19 @@
   margin-right: 10px;
   border-radius: 5px;
 }
-.gap {
-  margin: 30px 0px;
+
+@media screen and (min-width: 450px) {
+    .about-img {
+    display: flex;
+    text-align: center;
+    margin-left: 18px;
+  }
+  .about-img > img {
+    max-width: 350px;
+  }
 }
-@media screen and (min-width: 970px) {
+
+@media screen and (min-width: 1025px) {
   .about-container {
     margin: auto;
     padding: 0px 120px;
@@ -68,9 +76,10 @@
     display: flex;
     margin: 60px 0px;
   }
-  .gap {
-    margin: 60px 0px;
-  }
+  .about-img > img {
+  max-width: 600px;
+}
+
 }
 </style>
 

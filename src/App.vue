@@ -57,6 +57,7 @@
 
     color: white;
     font-size: 16px;
+    cursor: pointer;
   }
 
   // this class adds opacity on the page begin the login modal

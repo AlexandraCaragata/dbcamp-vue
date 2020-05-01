@@ -120,7 +120,7 @@ p {
 @media screen and (min-width: 970px) {
   // SPLASH SECTION
   .splash-container {
-  height: 650px;
+  height: 600px;
 }
   .splash-text > h1 {
     font-size: 45px;
