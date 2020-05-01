@@ -10,22 +10,27 @@
 
     <div class="contact">
       <h3>Contact</h3>
-      <div>11223344</div>
-      <div>email@gmail.com</div>
+      <div>+45 68 38 48 57</div>
+      <div>info@dbcamp.com</div>
     </div>
 
     <div class="address">
       <h3>Address</h3>
-      <div>some address</div>
+      <div>Ved Stranden 4, København SV, DK</div>
     </div>
 
     <div class="helpful-links">
       <h3>Helpful links</h3>
-      <div>some address</div>
+      
+        <a href="https://uxplanet.org/">uxplanet.org</a>
+        <a href="#">w3schools.com</a>
+        <a href="#">freecodecamp.com</a>
+        <a href="#">build-databases.com</a>
+      
     </div>
 
     <div class="logo">
-      <img src="../../assets/logo.png" alt />
+      <a href="/"><img src="../../assets/logo.png" alt /></a>
     </div>
   </footer>
 </template>
@@ -36,13 +41,10 @@
 		flex-direction: row;
 		justify-content: space-between;
     padding: 2vh 0 0 0;
-
-		height: 15vh;
-
 		bottom: 0;
-		width: 100vw;
-
+		width: 100%; 
 		background-color: #d3cecb;
+    padding-bottom: 30px;
 	}
 
 	div.follow-us {
@@ -60,10 +62,23 @@
       }
     }
 	}
+  .helpful-links > a{
+      display: block;
+    }
 
 	div.logo {
 		margin-right: 3vw;
 	}
+
+  @media screen and (max-width: 770px) {
+    footer{
+      display: block;
+      height: 100%;
+    }
+    footer > div:not(:last-child) {
+      margin: 20px;
+    }
+}
 </style>
 
 <script>

@@ -1,19 +1,26 @@
 <template>
 	<nav>
-		<img src="../../assets/logo.png" alt="">
-		<div class="pages">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<a href="/"><img src="../../assets/logo.png" alt /></a>
+		<div class="pages" id="navbar">
 			<div class="not-logged-in-pages" v-if="!getUser">
-				<router-link to="/">Home</router-link>
-				<router-link to="/about">Who are we</router-link>
-				<router-link to="/contact">Contact</router-link>
+				<a href="javascript:void(0);" class="burgericon" v-on:click="responsive">
+    			<i class="fa fa-bars"></i>
+  				</a>
+				<a><router-link to="/">Home</router-link></a>
+				<a><router-link to="/about">Who are we</router-link></a>
+				<a><router-link to="/contact">Contact</router-link></a>
 				<a @click="$emit('showLoginModal')">Login</a>
-				<router-link to="/sign-up">Sign Up</router-link>
+				<a><router-link to="/sign-up">Sign Up</router-link>	</a>
 			</div>
 			<div class="logged-in-pages" v-if="getUser">
-				<router-link to="/topics">Topics</router-link>
-				<router-link to="/forum">Forum</router-link>
-				<router-link to="/my-account">My Account</router-link>
-				<router-link to="/contact">Contact</router-link>
+				<a href="javascript:void(0);" class="burgericon" v-on:click="responsive">
+    			<i class="fa fa-bars"></i>
+  				</a>
+				<a><router-link to="/topics">Topics</router-link></a>
+				<a><router-link to="/forum">Forum</router-link></a>
+				<a><router-link to="/my-account">My Account</router-link></a>
+				<a><router-link to="/contact">Contact</router-link></a>
 				<a @click="logout">Logout</a>
 			</div>
 		</div>
@@ -33,8 +40,8 @@
 
 	img {
 		align-self: flex-start;
-		height: 10vh;
-		width: auto;
+		width: 100%;
+    	max-width: 200px;
 	}
 
 	div.pages {
@@ -51,6 +58,30 @@
 			cursor: pointer;
 		}
 	}
+	.burgericon{
+		display: none;
+	}
+	@media screen and (max-width: 770px) {
+.pages a:not(:first-child) {display: none;}
+  a.burgericon {
+    float: right;
+    display: block;
+  }
+}
+
+@media screen and (max-width: 770px) {
+  .pages.responsive {position: relative;}
+  .pages.responsive .burgericon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .pages.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+}
 </style>
 
 <script>
@@ -71,6 +102,14 @@ export default {
 		logout: function () {
 			this.removeUser();
 			router.push({ name: 'Home'});
+		},
+		responsive: function (){
+			var x = document.getElementById("navbar");
+  			if (x.className === "pages") {
+   				 x.className += " responsive";
+  				} else {
+    				x.className = "pages";
+  				}
 		}
 	}
 }
