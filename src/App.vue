@@ -29,6 +29,13 @@
     font-family: 'Heebo', sans-serif;
     font-weight: 300;
     font-size: 14px;
+    width: 90%;
+    background: #fff;
+    color: #333;
+    padding: 10px;
+    border-radius: 5px;
+	border: solid 1px #d3cecb;
+	margin-bottom: 20px;
   }
 
   #app {

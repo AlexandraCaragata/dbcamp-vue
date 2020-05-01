@@ -1,20 +1,24 @@
 <template>
   <div>
-    <h1>Contact us</h1>
     <div>
       <form id="sendEmail" @submit.prevent="sendEmail">
+          <div class="head-form">
+      				<h1>Contact us</h1>
+				</div>
         <div class="form-container">
-          <label for="contact-name">Name</label>
-          <input type="text" name="contact-name" placeholder="Name" />
+          <div class="form-wrapper">
+          <label for="contact-name">Name
+          <input type="text" name="contact-name" placeholder="Name" /></label>
 
-          <label for="email">Email</label>
-          <input type="text" name="email" placeholder="Email" />
-
+          <label for="email">Email
+          <input type="text" name="email" placeholder="Email" /></label>
+          </div>
           <label for="subject">Subject</label>
           <input type="text" name="subject" placeholder="Subject" />
 
-          <label for="contactInput">Type Here</label>
-          <input type="text" name="contactInput" placeholder="Type Here" />
+          <label for="contactInput">Type you message here</label>
+          <input type="text" id="contactInput" name="contactInput" />
+          
 
           <button type="submit">Send Email</button>
         </div>
@@ -25,51 +29,54 @@
 
 <style lang="scss">
 #sendEmail {
+	padding: 10px;
   background-color: #d3cecb;
-  display: flex;
-  flex-direction: column;
-  width: 50%;
-  margin: 2vh auto;
-  padding: 4vh 4vw;
+		a {
+			color: coral;
+			cursor: pointer;
+		}
+		h1{
+			text-align: center;
+		}
+	}
 
-  a {
-    color: coral;
-  }
-
-  p {
-    font-size: 14px;
-  }
-
-  input {
-    width: 600px;
-  }
+	input {
+	width: 90%;
+    background: #fff;
+    color: #333;
+    padding: 10px;
+    border-radius: 5px;
+	border: solid 1px #d3cecb;
+	margin-bottom: 20px;
 }
+input:focus {
+    border: solid #9b646f 2px;
+} 
 
-.form-container {
-  margin-left: 4vw;
+@media screen and (min-width: 500px) {
+#sendEmail {
+    width: 450px;
+    min-height: 500px;
+    height: auto;
+    border-radius: 5px;
+    margin: 2% auto;
+    box-shadow: 0 9px 50px hsla(20, 67%, 75%, 0.31);
+    padding: 2%;
+    background-color: #d3cecb;
+	}
+	input {
+	width: 100%;
+  padding: 14.5px 0px 15px 9px;
 }
-
-#contactInput {
-  height: 100px;
-  padding-top: 5px;
+.form-wrapper{
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-gap: 20px;
 }
-
-label {
-  display: flex;
-  flex-direction: column;
+#contactInput{
+  height: 100%;
+  min-height: 100px;
 }
-
-button {
-  margin: 0 auto;
-  width: 600px;
-  height: 3em;
-  cursor: pointer;
-  border-radius: 5px;
-  border: none;
-  background-color: #354865;
-
-  color: white;
-  font-size: 16px;
 }
 </style>
 

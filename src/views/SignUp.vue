@@ -35,7 +35,7 @@
 .sign-up-form {
 	padding: 10px;
     background-color: #d3cecb;
-	width: 100%
+	width: 100%;
 		a {
 			color: coral;
 			cursor: pointer;
@@ -55,7 +55,7 @@
 }
 input:focus {
     border: solid #9b646f 2px;
-}
+} 
 
 @media screen and (min-width: 500px) {
 	.sign-up-form {

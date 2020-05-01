@@ -54,6 +54,46 @@ export default {
 </script>
 
 <style lang="scss">
+
+.login-form {
+    background-color: #d3cecb;
+    z-index: 999;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    width: 80%;
+    padding: 2vh 2vw;
+    top: 20%;
+    left: 8%;
+    position: absolute;
+   
+		a {
+		color: coral;
+		cursor: pointer;
+	}
+
+	.cancel-link {
+		align-self: flex-end;
+	}
+
+	p {
+		font-size: 16px;
+		text-align: center;
+	}
+
+	button[type=submit] {
+		align-self: baseline;
+	}
+}
+
+@media screen and (min-width: 1000px) {
 .login-form {
 	background-color: #d3cecb;
 	z-index: 999;
@@ -87,5 +127,6 @@ export default {
 	button[type=submit] {
 		align-self: baseline;
 	}
+}
 }
 </style>
