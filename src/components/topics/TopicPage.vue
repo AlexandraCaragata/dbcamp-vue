@@ -31,16 +31,15 @@
 <style lang="scss">
 // TEXT SECTION
 .text-section {
-  padding: 50px 80px;
+  padding: 0px 15px;
 }
 .headingOne-wrapper {
   display: flex;
 }
 .headingOne-wrapper > img {
-  margin-left: -20px;
-  height: 100%;
-  max-height: 80px;
-  margin-top: -10px;
+    height: 100%;
+    max-height: 60px;
+    margin-top: 10px;
 }
 .headingOne-wrapper > h1 {
   font-weight: 400;
@@ -52,12 +51,10 @@ p {
 
 // VIDEO TUTORIAL
 .tutorial-wrapper {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  padding: 0px 50px;
+  padding: 0px 10px;
 }
 .video-tutorial {
-  width: 400px;
+  width: 100%;
   margin: auto;
 }
 .video-tutorial > h2 {
@@ -72,6 +69,51 @@ iframe {
   border-radius: 5px;
   width: 100%;
   height: 315px;
+}
+@media screen and (min-width: 900px) {
+  .text-section {
+  padding: 50px 80px;
+}
+.headingOne-wrapper > img {
+  margin-left: -20px;
+  height: 100%;
+  max-height: 80px;
+  margin-top: -10px;
+}
+
+// VIDEO TUTORIAL
+.tutorial-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 0px 50px;
+}
+.video-tutorial {
+  width: 400px;
+  margin: auto;
+}
+}
+@media screen and (min-width: 1100px) {
+// TEXT SECTION
+.text-section {
+  padding: 50px 80px;
+}
+.headingOne-wrapper > img {
+  margin-left: -20px;
+  height: 100%;
+  max-height: 80px;
+  margin-top: -10px;
+}
+
+// VIDEO TUTORIAL
+.tutorial-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  padding: 0px 50px;
+}
+.video-tutorial {
+  width: 400px;
+  margin: auto;
+}
 }
 </style>
 
