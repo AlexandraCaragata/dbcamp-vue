@@ -1,8 +1,7 @@
 <template>
   <!-- FORUM SECTION -->
   <div class="forum-container">
-    <img src="../../assets/icons/chat-icon-hi.png" style="
-    margin-left: 70px" alt="icon" />
+    <img src="../../assets/icons/chat-icon-hi.png" alt="icon" />
     <div class="forum-txt">
       <h1>Do you need help?</h1>
       <h2>Chat with the experts</h2>
@@ -16,7 +15,7 @@
 // FORUM
 .forum-container {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr;
   height: 250px;
 }
 .forum-txt {
@@ -45,8 +44,41 @@
   margin: 15px 0;
 }
 .forum-container > img {
-  height: 100%;
+  display: none;
+}
+@media screen and (min-width: 360px) {
+// FORUM
+.forum-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  height: 250px;
+}
+.forum-container > img {
+  display: grid;
   align-content: right;
+  max-width: 80px;
+}
+}
+@media screen and (min-width: 450px) {
+.forum-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  height: 250px;
+}
+.forum-container > img {
+  align-content: right;
+  min-width: 200px;
+}
+.forum-container > img:first-child{
+  margin-left: 20px;
+}
+}
+
+@media screen and (min-width: 970px) {
+
+.forum-container > img:first-child{
+  margin-left: 120px;
+}
 }
 </style>
 
