@@ -42,7 +42,7 @@ h2 {
 
 .chat-container {
   margin: auto;
-  padding: 0px 120px;
+  padding: 0px 20px;
 }
 
 .intro-text {
@@ -53,6 +53,48 @@ h2 {
   text-align: left;
 }
 
+//Chat section
+.chat-input {
+  margin: auto;
+  padding: 0px 20px;
+}
+#chatInput {
+  width: 100%;
+  height: 50px;
+  border-radius: 5px;
+  border: 2px outset #959595;
+  margin-bottom: 5px;
+}
+
+//Input
+
+.input-container {
+  margin-top: 5%;
+  padding: 0px 20px;
+}
+
+#chat {
+  width: 100%;
+  height: 100px;
+}
+
+button {
+  width: 300px;
+  height: 3em;
+  border-radius: 5px;
+  border: none;
+  background-color: #354865;
+  color: white;
+  font-size: 16px;
+}
+
+
+@media screen and (min-width: 970px) {
+
+.chat-container {
+  margin: auto;
+  padding: 0px 120px;
+}
 //Chat section
 .chat-input {
   margin: auto;
@@ -77,15 +119,6 @@ h2 {
   width: 100%;
   height: 100px;
 }
-
-button {
-  width: 300px;
-  height: 3em;
-  border-radius: 5px;
-  border: none;
-  background-color: #354865;
-  color: white;
-  font-size: 16px;
 }
 </style>
 
