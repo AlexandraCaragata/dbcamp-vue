@@ -75,7 +75,6 @@
 }
 
 @media screen and (min-width: 970px) {
-
 .forum-container > img:first-child{
   margin-left: 120px;
 }
