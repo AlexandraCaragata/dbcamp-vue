@@ -4,7 +4,7 @@ import MyAccount from "../views/MyAccount";
 
 const actions = {
 	verifyUser({commit}, {username, password}) {
-		fetch('http://localhost/db-camp/sessionService/login.php', {
+		fetch(`${process.env.VUE_APP_API_URL}/sessionService/login.php`, {
 			method: 'POST',
 			body: formDataGenerator.generate({
 				username: username,
@@ -25,7 +25,8 @@ const actions = {
 		});
 	},
 	fetchTopics ({commit}) {
-		fetch('http://localhost/db-camp/databaseConnections/topics/get-topics.php').then(
+		console.log('here',`${process.env.VUE_APP_API_URL}/databaseConnections/topics/get-topics.php` );
+		fetch(`${process.env.VUE_APP_API_URL}/databaseConnections/topics/get-topics.php`).then(
 			async (response) => {
 				const body = await response.json();
 
@@ -41,7 +42,7 @@ const actions = {
 		)
 	},
 	fetchDiplomas ({commit}, userId) {
-		fetch(`http://localhost/db-camp/databaseConnections/diplomas/get-diplomas-for-user.php?userId=${userId}`).then(
+		fetch(`${process.env.VUE_APP_API_URL}/databaseConnections/diplomas/get-diplomas-for-user.php?userId=${userId}`).then(
 			async (response) => {
 				const body = await response.json();
 

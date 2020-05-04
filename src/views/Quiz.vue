@@ -40,7 +40,7 @@ export default {
 		}
 
 		// here it calls the API and gets all the necessary information for the quiz: quiz title and questions
-		fetch(`http://localhost/db-camp/databaseConnections/quizzes/get-quiz.php?quizId=${this.$route.params.quizId}`)
+		fetch(`${process.env.VUE_APP_API_URL}/databaseConnections/quizzes/get-quiz.php?quizId=${this.$route.params.quizId}`)
 			.then(async (response) => {
 			const body = await response.json();
 
@@ -54,7 +54,7 @@ export default {
 			this.questionNumber += 1;
 		},
 		registerScore: async function (score) {
-			await fetch('http://localhost/db-camp/databaseConnections/quizzes/save-answered-quiz.php', {
+			await fetch(`${process.env.VUE_APP_API_URL}/databaseConnections/quizzes/save-answered-quiz.php`, {
 				method: 'POST',
 				body: formDataGenerator.generate({
 					quizId: this.quiz.id,

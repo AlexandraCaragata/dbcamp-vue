@@ -1,6 +1,6 @@
 <template>
 	<div class="sign-up-page">
-		
+
 		<div>
 			<form class="sign-up-form" @submit.prevent="saveUser">
    				<div class="head-form">
@@ -55,7 +55,7 @@
 }
 input:focus {
     border: solid #9b646f 2px;
-} 
+}
 
 @media screen and (min-width: 500px) {
 	.sign-up-form {
@@ -98,7 +98,7 @@ input:focus {
 
 		methods: {
 			saveUser: async function () {
-				const response = await fetch('http://localhost/db-camp/databaseConnections/user/create-user.php', {
+				const response = await fetch(`${process.env.VUE_APP_API_URL}/databaseConnections/user/create-user.php`, {
 					method: 'POST',
 					body: formDataGenerator.generate({
 						firstName: this.firstName,
@@ -115,10 +115,10 @@ input:focus {
 			},
 
 			sendConfirmationEmail: async function (id) {
-				await fetch('http://localhost/db-camp/emailService/api-send-email.php', {
+				await fetch(`${process.env.VUE_APP_API_URL}/emailService/api-send-email.php`, {
 					method: 'POST',
 					body: formDataGenerator.generate({
-						'email_message' : `In order to validate your account please click this link: http://localhost/db-camp/databaseConnections/user/validate-user.php?id=${id}` ,
+						'email_message' : `In order to validate your account please click this link: ${process.env.VUE_APP_API_URL}/databaseConnections/user/validate-user.php?id=${id}` ,
 						'subject': 'Validation mail',
 						'email_address_to': this.email,
 					})

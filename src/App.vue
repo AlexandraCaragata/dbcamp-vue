@@ -90,7 +90,7 @@
     async mounted() {
       if (localStorage.user) {
         this.addUser(JSON.parse(localStorage.user));
-        await this.fetchTopics();
+        await this.fetchTopics();9
       }
     },
     methods: {

@@ -4,18 +4,54 @@
     <TopicPage
       :topicName="topic.name"
       :topicIcon="topic.iconName"
-      :topicText="newText"
-      :videoTutorials="newTutorials"
-    ></TopicPage>
+    >
+     <div>
+      <p>Normalization is a formal technique for analysing relations based on their primary key and functional dependencies (Codd, 1972b). The technique involves a series of rules that can be used to divide larger tables into smaller tables and link them together using relationships. The purpose of Normalization is to eliminate unnecessary or useless data and ensure data is stored logically.</p>
+      <h3>The normalization rules are divided into the following normal forms:</h3>
+      <p>1. 	First Normal Form (1 NF).
+       Here is each column unique.
+      </p>
 
-    <!-- TAKE-THE-QUIZ SECTION  -->
-    <section class="quiz-section">
-      <div class="go-to-quiz">
-        <h2>TAKE THE QUIZ</h2>
-        <p>And get a diploma</p>
-        <button class="btn-goToQuiz" v-on:click="goToQuiz">START</button>
-      </div>
-    </section>
+      <p>
+       2. 	Second Normal Form (2 NF).
+       The entity should be considered already in 1NF, and all attributes within the entity should depend alone on the unique identifier of the entity.
+      </p>
+
+      <p>
+       3. 	Third Normal Form (3 NF).
+       In this case, the entity should be considered already in 2NF, and no column entry should be dependent on any other value other than the key for the table. If such an entity exists, move it outside into a new table.
+      </p>
+
+      <p>
+        4. 	BCNF
+        Same rules as in 3NF plus all tables in the database should be only one primary key.
+      </p>
+
+      <p>
+       With exception of 1NF, all these normal forms are based on functional dependencies among the attributes of a relation (Maier, 1983). BCNF is a stronger definition of 3 NF. You can find higher normal forms that goes beyond BCNF, but in this course we will only describe the first three normal forms.
+      </p>
+
+      <h3>Example:</h3>
+      <p>Here is a table of students at KEA studying Multimedia design. The rows of this table includes the student ID, the name of the student, the study program, the teacher who teaches this program and the classroom where the class will take place.
+        Every time KEA gets a new student for their Multimedia Design program, three rows are repeated:
+        study_program, teacher and classroom.
+      </p>
+      <img class="topic-image" src="../../assets/normalization_example_table.png">
+      <p>
+       Unnecessary data repetition increases the size of the database and leads to more issues like problems with updating the database without facing data loss.
+       Duplication is reduced by splitting the information up into smaller tables, each with a specific focus. In this case, we’ll split the table into one table that contains the first two rows and call it ”Students”, and another table for the three last rows and call it for example ”Study Programs”. To connect the two tables, we need to understand primary keys and foreign keys.
+
+       A primary key is unique and identifies are record in a Table. A primary key cannot be null. A foreign key references a primary key, and therefore we can use foreign keys to connect the two tables.
+
+       See the videos for more information about keys and normal forms.
+      </p>
+      <h3>Remember to take the quiz afterwards!</h3>
+     </div>
+    </TopicPage>
+
+    <VideoTutorials :videoTutorials="videoTutorials"></VideoTutorials>
+
+    <TakeAQuizSection :topic="topic"></TakeAQuizSection>
 
     <div class="forum-container">
       <ForumChatBanner></ForumChatBanner>
@@ -24,50 +60,14 @@
 </template>
 
 <style lang="scss" >
-// QUIZ SECTION
-.quiz-section {
-  margin: 40px 0px;
-  background-image: url("../../assets/friends-codeing.jpg");
-  width: 100%;
-  height: 600px;
-  background-position: bottom;
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: relative;
-  box-shadow: inset 0 0 0 2000px rgba(245, 243, 243, 0.26);
+img.topic-image {
+  width: 600px;
+  height: auto;
 }
-
-.go-to-quiz {
-  width: 500px;
-  background-color: rgba(245, 245, 245, 0.842);
-  text-align: center;
-  padding: 25px;
-  position: absolute;
-  top: 50%;
-  left: 78%;
-  transform: translate(-50%, -50%);
-}
-.go-to-quiz > p {
-  text-align: center;
-  font-size: 40px;
-  margin-top: 0;
-}
-.go-to-quiz > h2 {
-  font-size: 40px;
-  margin-bottom: 0;
-}
-.btn-goToQuiz {
-  width: 350px;
-  margin-bottom: 20px;
-  font-size: 25px;
-  cursor: pointer;
-}
-
-//FORUM BANNER
+  //FORUM BANNER
 .forum-container {
   width: 1000px;
-  margin: auto;
-  margin-bottom: 40px;
+  margin: auto auto 40px;
 }
 </style>
 
@@ -75,16 +75,15 @@
 <script>
 import ForumChatBanner from "@/components/layout/ForumChatBanner";
 import TopicPage from "../../components/topics/TopicPage";
+import TakeAQuizSection from "../../components/layout/TakeAQuizSection";
 import {mapGetters} from "vuex";
-import router from "../../router";
+import VideoTutorials from "../../components/layout/VideoTutorials";
 export default {
   name: "db-normalisation-page",
-  components: {TopicPage, ForumChatBanner },
+  components: {VideoTutorials, TakeAQuizSection, TopicPage, ForumChatBanner },
   data: function() {
     return {
-      newText:
-        "Kt vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.",
-      newTutorials: [
+      videoTutorials: [
         {
           tutorialId: 1,
           videoLink: "https://www.youtube.com/embed/jc0Q7OAeRu0",
@@ -120,10 +119,5 @@ export default {
       }
     }
   },
-  methods: {
-    goToQuiz: function() {
-      router.push({ name: 'quiz', params: { quizId: this.topic.quiz_id }});
-    }
-  }
 };
 </script>

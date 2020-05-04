@@ -2,20 +2,32 @@
   <div class="web-front-end-page" v-if="haveTopicsLoaded">
     <!-- TOPIC: web-front-end -->
     <TopicPage
-      :topicName="topic.name"
-      :topicIcon="topic.iconName"
-      :topicText="newText"
-      :videoTutorials="newTutorials"
-    ></TopicPage>
+        :topicName="topic.name"
+        :topicIcon="topic.iconName"
+    >
+      <div>
+        <p>Since SQL is not Turing complete, the business logic should be executed outside the DBMS, which is then only invoked for the execution of the corresponding queries.</p>
+        <p>Programming languages offer different solutions to access the database from inside your application. There are two approaches to accessing SQL:</p>
+        <p><em>Embedded SQL</em> A preprocessor submits the SQL statements to the DBMS. SQL-related errors will be caught at compile time, before execution takes place.</p>
+        <p><em>Dynamic SQL</em> The SQL queries are written and stored in the programming language, then submitted to the DBMS via a database driver. The result returned by the DBMS are then stored into variables of the programming language.</p>
 
-    <!-- TAKE-THE-QUIZ SECTION  -->
-    <section class="quiz-section">
-      <div class="go-to-quiz">
-        <h2>TAKE THE QUIZ</h2>
-        <p>And get a diploma</p>
-        <button class="btn-goToQuiz" v-on:click="goToQuiz">START</button>
+        <p>One example of how to connect to a database is by using PDO (PHP Data Objects). It offers:</p>
+        <p><em>Coding consistency</em> Single uniform interface no matter which database is being accessed</p>
+        <p><em>Flexibility</em> Database drivers are loaded runtime</p>
+        <p><em>Object-Oriented Features</em></p>
+        <p><em>Performance</em></p>
+
+        <p>In the images bellow you can see an example of how you can connect to a database by using PDO</p>
+        <img src="../../assets/PDOConnect.png" alt="">
+        <img src="../../assets/PDOAdd.png" alt="">
+
+        <h3>Watch the videos for more information!</h3>
       </div>
-    </section>
+    </TopicPage>
+
+    <VideoTutorials :videoTutorials="videoTutorials"></VideoTutorials>
+
+    <TakeAQuizSection :topic="topic"></TakeAQuizSection>
 
     <div class="forum-container">
       <ForumChatBanner></ForumChatBanner>
@@ -24,50 +36,10 @@
 </template>
 
 <style lang="scss" >
-// QUIZ SECTION
-.quiz-section {
-  margin: 40px 0px;
-  background-image: url("../../assets/friends-codeing.jpg");
-  width: 100%;
-  height: 600px;
-  background-position: bottom;
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: relative;
-  box-shadow: inset 0 0 0 2000px rgba(245, 243, 243, 0.26);
-}
-
-.go-to-quiz {
-  width: 500px;
-  background-color: rgba(245, 245, 245, 0.842);
-  text-align: center;
-  padding: 25px;
-  position: absolute;
-  top: 50%;
-  left: 78%;
-  transform: translate(-50%, -50%);
-}
-.go-to-quiz > p {
-  text-align: center;
-  font-size: 40px;
-  margin-top: 0;
-}
-.go-to-quiz > h2 {
-  font-size: 40px;
-  margin-bottom: 0;
-}
-.btn-goToQuiz {
-  width: 350px;
-  margin-bottom: 20px;
-  font-size: 25px;
-  cursor: pointer;
-}
-
 //FORUM BANNER
 .forum-container {
   width: 1000px;
-  margin: auto;
-  margin-bottom: 40px;
+  margin: auto auto 40px;
 }
 </style>
 
@@ -77,14 +49,14 @@ import ForumChatBanner from "@/components/layout/ForumChatBanner";
 import TopicPage from "../../components/topics/TopicPage";
 import {mapGetters} from "vuex";
 import router from "../../router";
+import VideoTutorials from "../../components/layout/VideoTutorials";
+import TakeAQuizSection from "../../components/layout/TakeAQuizSection";
 export default {
   name: "web-front-end-page",
-  components: {TopicPage, ForumChatBanner },
+  components: {TopicPage, ForumChatBanner, VideoTutorials, TakeAQuizSection },
   data: function() {
     return {
-      newText:
-        "Kt vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.",
-      newTutorials: [
+      videoTutorials: [
         {
           tutorialId: 1,
           videoLink: "https://www.youtube.com/embed/jc0Q7OAeRu0",

@@ -4,18 +4,25 @@
     <TopicPage
       :topicName="topic.name"
       :topicIcon="topic.iconName"
-      :topicText="newText"
-      :videoTutorials="newTutorials"
-    ></TopicPage>
-
-    <!-- TAKE-THE-QUIZ SECTION  -->
-    <section class="quiz-section">
-      <div class="go-to-quiz">
-        <h2>TAKE THE QUIZ</h2>
-        <p>And get a diploma</p>
-        <button class="btn-goToQuiz" v-on:click="goToQuiz">START</button>
+    >
+      <div>
+        <p>An Entity–relationship model (ER model) describes the structure of a database with the help of a diagram, which is known as an Entity Relationship Diagram (ER Diagram). An ER model is a design or blueprint of a database that can later be implemented as a database. In terms of DBMS, an entity is a table or attribute of a table in a database, so by showing relationships among tables and their attributes, the ER diagram shows the complete logical structure of a database.</p>
+        <p>Any object, such as entities, attributes of an entity, sets of relationship, and other attributes of relationship, can be characterised with the help of the ER diagram.</p>
+        <p>ER modeling is a top-down structure to database design that begins with identifying the important data called entities and relationships in combination with the data that must be characterised in the model. Then database model designers can add more details such as the information they want to hold about the entities and relationships, which are the attributes and any constraints on the entities, relationships, and attributes. ER modeling is an important technique for any database designer to master and forms the basis of the methodology.</p>
+        <p>Entities: An entity is an object or component of data. An entity is represented as a rectangle in an ER diagram. An entity that cannot be uniquely identified by its own attributes and relies on the relationship with another entity, this is called a weak entity, and is represented by a double rectangle.</p>
+        <p>Attributes: An attribute describes the property of an entity. An attribute is represented as Oval in an ER diagram. There are four types of attributes: Key attribute, Composite attribute, multivalued attribute & Derived attribute.</p>
+        <p>Relationships: A relationship is represented by diamond shape in the ER diagram, it shows the relationship among entities. There are four types of relationships:</p>
+        <p>1. One to one: When a single instance of an entity is associated with a single instance of another entity then it is called one to one relationship. For example, a person has only one passport and a passport is given to one person.</p>
+        <p>2. One to many: When a single instance of an entity is associated with more than one instance of another entity then it is called one to many relationship. For example – a customer can place many orders but an order cannot be placed by many customers.</p>
+        <p>3. Many to one: When more than one instance of an entity is associated with a single instance of another entity then it is called many to one relationship. For example – many students can study in a single college but a student cannot study in many colleges at the same time.</p>
+        <p>4. Many to Many: When more than one instance of an entity is associated with more than one instance of another entity then it is called many to many relationship. For example, a student can be assigned to many projects and a project can be assigned to many students.</p>
+        <p>Total Participation of an Entity set: A Total participation of an entity set represents that each entity in the entity set must have at least one relationship in a relationship set.</p>
       </div>
-    </section>
+    </TopicPage>
+
+    <VideoTutorials :videoTutorials="videoTutorials"></VideoTutorials>
+
+    <TakeAQuizSection :topic="topic"></TakeAQuizSection>
 
     <div class="forum-container">
       <ForumChatBanner></ForumChatBanner>
@@ -24,50 +31,10 @@
 </template>
 
 <style lang="scss" >
-// QUIZ SECTION
-.quiz-section {
-  margin: 40px 0px;
-  background-image: url("../../assets/friends-codeing.jpg");
-  width: 100%;
-  height: 600px;
-  background-position: bottom;
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: relative;
-  box-shadow: inset 0 0 0 2000px rgba(245, 243, 243, 0.26);
-}
-
-.go-to-quiz {
-  width: 500px;
-  background-color: rgba(245, 245, 245, 0.842);
-  text-align: center;
-  padding: 25px;
-  position: absolute;
-  top: 50%;
-  left: 78%;
-  transform: translate(-50%, -50%);
-}
-.go-to-quiz > p {
-  text-align: center;
-  font-size: 40px;
-  margin-top: 0;
-}
-.go-to-quiz > h2 {
-  font-size: 40px;
-  margin-bottom: 0;
-}
-.btn-goToQuiz {
-  width: 350px;
-  margin-bottom: 20px;
-  font-size: 25px;
-  cursor: pointer;
-}
-
 //FORUM BANNER
 .forum-container {
   width: 1000px;
-  margin: auto;
-  margin-bottom: 40px;
+  margin: auto auto 40px;
 }
 </style>
 
@@ -77,14 +44,14 @@ import ForumChatBanner from "@/components/layout/ForumChatBanner";
 import TopicPage from "../../components/topics/TopicPage";
 import {mapGetters} from "vuex";
 import router from "../../router";
+import VideoTutorials from "../../components/layout/VideoTutorials";
+import TakeAQuizSection from "../../components/layout/TakeAQuizSection";
 export default {
   name: "entity-diagram-page",
-  components: {TopicPage, ForumChatBanner },
+  components: {TopicPage, ForumChatBanner, VideoTutorials, TakeAQuizSection },
   data: function() {
     return {
-      newText:
-        "Kt vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.",
-      newTutorials: [
+      videoTutorials: [
         {
           tutorialId: 1,
           videoLink: "https://www.youtube.com/embed/jc0Q7OAeRu0",
