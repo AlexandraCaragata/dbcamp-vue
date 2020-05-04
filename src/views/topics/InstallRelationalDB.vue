@@ -38,10 +38,6 @@
 	</div>
 </template>
 
-<style lang="scss" >
-</style>
-
-
 <script>
 	import ForumChatBanner from "@/components/layout/ForumChatBanner";
 	import TopicPage from "../../components/topics/TopicPage";
