@@ -82,6 +82,7 @@
     footer > div:not(:last-child) {
       margin: 20px;
     }
+
 }
 </style>
 

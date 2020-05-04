@@ -7,20 +7,20 @@
 				<a href="javascript:void(0);" class="burgericon" v-on:click="responsive">
     			<i class="fa fa-bars"></i>
   				</a>
-				<a><router-link to="/">Home</router-link></a>
-				<a><router-link to="/about">Who are we</router-link></a>
-				<a><router-link to="/contact">Contact</router-link></a>
+				<router-link to="/">Home</router-link>
+				<router-link to="/about">Who are we</router-link>
+				<router-link to="/contact">Contact</router-link>
 				<a @click="$emit('showLoginModal')">Login</a>
-				<a><router-link to="/sign-up">Sign Up</router-link>	</a>
+				<router-link to="/sign-up">Sign Up</router-link>
 			</div>
 			<div class="logged-in-pages" v-if="getUser">
 				<a href="javascript:void(0);" class="burgericon" v-on:click="responsive">
     			<i class="fa fa-bars"></i>
   				</a>
-				<a><router-link to="/topics">Topics</router-link></a>
+				<router-link to="/topics">Topics</router-link>
 				<a><router-link to="/forum">Forum</router-link></a>
-				<a><router-link to="/my-account">My Account</router-link></a>
-				<a><router-link to="/contact">Contact</router-link></a>
+				<router-link to="/my-account">My Account</router-link>
+				<router-link to="/contact">Contact</router-link>
 				<a @click="logout">Logout</a>
 			</div>
 		</div>
@@ -33,7 +33,6 @@
 		flex-direction: row;
 		justify-content: space-between;
 		align-items: center;
-
 		background-color: #d3cecb;
 		padding: 0 3vw;
 	}
@@ -62,19 +61,24 @@
 		display: none;
 	}
 	@media screen and (max-width: 770px) {
-.pages a:not(:first-child) {display: none;}
+.pages a:not(:first-child) {
+	display: none;
+	margin-top: 25px;
+	border-bottom: 1px solid rgba(51, 51, 51, 0.158);
+	}
   a.burgericon {
     float: right;
     display: block;
-  }
-}
 
-@media screen and (max-width: 770px) {
-  .pages.responsive {position: relative;}
+  }
+  .pages.responsive {
+	  position: relative;
+	  overflow: hidden;
+	  }
   .pages.responsive .burgericon {
     position: absolute;
     right: 0;
-    top: 0;
+    top: 10px;
   }
   .pages.responsive a {
     float: none;
