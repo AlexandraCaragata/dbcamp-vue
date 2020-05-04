@@ -64,11 +64,10 @@ img.topic-image {
   width: 600px;
   height: auto;
 }
-  //FORUM BANNER
-.forum-container {
-  width: 1000px;
-  margin: auto auto 40px;
-}
+
+
+
+
 </style>
 
 

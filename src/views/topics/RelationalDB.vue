@@ -64,11 +64,6 @@
 </template>
 
 <style lang="scss" >
-//FORUM BANNER
-.forum-container {
-  width: 1000px;
-  margin: auto auto 40px;
-}
 </style>
 
 

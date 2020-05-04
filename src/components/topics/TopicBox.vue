@@ -35,7 +35,7 @@
 .course {
 	border: 2px solid #d3cecb;
 	padding: 10px;
-	margin: 25px 50px 25px 0px;
+	margin-bottom: 18px;
 	border-radius: 5px;
 	cursor: pointer;
 }
@@ -47,7 +47,7 @@
 }
 .course > h3 {
 	font-weight: 600;
-	font-size: 14px;
+	font-size: 12px;
 }
 
 .course > h2,
@@ -56,9 +56,10 @@ h3 {
 	text-align: left;
 }
 .course > img {
-	position: absolute;
-	margin-top: -3.5vw;
-	margin-left: 16vw;
+position: absolute;
+    margin-top: -7vw;
+    margin-left: 73vw;
+    max-width: 57px
 }
 
 .progress-container {
@@ -84,5 +85,36 @@ h3 {
     margin: 8px auto;
     text-align: center;
 }
+@media screen and (min-width: 360px) {
+.course > img {
+position: absolute;
+    max-width: 70px
+}
 
+}
+@media screen and (min-width: 450px) {
+	.course {
+	padding: 10px;
+}
+	.course > img {
+	position: absolute;
+	margin-top: -5vw;
+	margin-left: 33vw;
+	max-width: 100px;
+}
+
+}
+
+@media screen and (min-width: 1100px) {
+.course {
+	padding: 10px;
+	margin: 25px 50px 25px 0px;
+}
+.course > img {
+	position: absolute;
+	margin-top: -3.5vw;
+	margin-left: 14vw;
+	max-width: 150px;
+}
+}
 </style>

@@ -29,8 +29,8 @@
       
     </div>
 
-    <div class="logo">
-      <a href="/"><img src="../../assets/logo.png" alt /></a>
+    <div class="logo-container">
+      <a href="/"><img class="logo" src="../../assets/logo.png" alt /></a>
     </div>
   </footer>
 </template>
@@ -66,9 +66,13 @@
       display: block;
     }
 
-	div.logo {
+	div.logo-container {
 		margin-right: 3vw;
+    
 	}
+  .logo {
+    max-width: 200px;
+  }
 
   @media screen and (max-width: 770px) {
     footer{

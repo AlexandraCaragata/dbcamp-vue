@@ -68,7 +68,7 @@
 
 .intro-container {
   margin: auto;
-  padding: 0px 120px;
+  padding: 0px 20px;
 }
 
 .intro-text {
@@ -82,7 +82,7 @@
 // FAQ
 .faq-container {
   margin-top: 5%;
-  padding: 0px 120px;
+  padding: 0px 20px;
 }
 
 p,
@@ -180,6 +180,45 @@ ul li input[type="checkbox"]:checked ~ i:after {
 //INPUT FELT
 .input-container {
   margin-top: 5%;
+  padding: 0px 20px;
+}
+
+#subject {
+  width: 90%;
+}
+
+#chat {
+  width: 90%;
+  height: 100px;
+}
+
+button {
+  width: 300px;
+  height: 3em;
+  border-radius: 5px;
+  border: none;
+  background-color: #354865;
+  color: white;
+  font-size: 16px;
+  margin-bottom: 10px ;
+}
+
+@media screen and (min-width: 970px) {
+// INTRODUCTION SECTION
+
+.intro-container {
+  margin: auto;
+  padding: 0px 120px;
+}
+
+// FAQ
+.faq-container {
+  margin-top: 5%;
+  padding: 0px 120px;
+}
+//INPUT FELT
+.input-container {
+  margin-top: 5%;
   padding: 0px 120px;
 }
 
@@ -192,14 +231,6 @@ ul li input[type="checkbox"]:checked ~ i:after {
   height: 100px;
 }
 
-button {
-  width: 300px;
-  height: 3em;
-  border-radius: 5px;
-  border: none;
-  background-color: #354865;
-  color: white;
-  font-size: 16px;
 }
 </style>
 

@@ -1,7 +1,7 @@
 <template>
 	<nav>
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-		<a href="/"><img src="../../assets/logo.png" alt /></a>
+		<a href="/"><img class="logo" src="../../assets/logo.png" alt /></a>
 		<div class="pages" id="navbar">
 			<div class="not-logged-in-pages" v-if="!getUser">
 				<a href="javascript:void(0);" class="burgericon" v-on:click="responsive">
@@ -38,7 +38,7 @@
 		padding: 0 3vw;
 	}
 
-	img {
+	.logo {
 		align-self: flex-start;
 		width: 100%;
     	max-width: 200px;

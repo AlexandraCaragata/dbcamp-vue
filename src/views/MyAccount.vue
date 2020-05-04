@@ -54,18 +54,35 @@
 </script>
 
 <style lang="scss">
+
+
 .wrapper {
-	margin: 0 13vw;
+  margin: 0 5vw;
 }
 
 h1 {
-	font-weight: 100;
-	text-align: left;
+  font-weight: 100;
+  text-align: left;
+}
+@media screen and (min-width: 450px) {
+  .wrapper {
+  margin: 0 7vw;
+}
+.takenCourses {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 30px;
+}
 }
 
-// TAKEN COURSES
+@media screen and (min-width: 1100px) {
+.wrapper {
+  margin: 0 13vw;
+}
 .takenCourses {
-	display: grid;
-	grid-template-columns: 1fr 1fr 1fr;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 0;
+}
 }
 </style>

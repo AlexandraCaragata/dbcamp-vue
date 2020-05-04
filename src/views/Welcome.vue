@@ -23,18 +23,33 @@
 
 <style lang="scss">
 .wrapper {
-  margin: 0 13vw;
+  margin: 0 5vw;
 }
 
 h1 {
   font-weight: 100;
   text-align: left;
 }
+@media screen and (min-width: 450px) {
+  .wrapper {
+  margin: 0 7vw;
+}
+.allCourses {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 30px;
+}
+}
 
-// COURSES/TOPICS
+@media screen and (min-width: 1100px) {
+.wrapper {
+  margin: 0 13vw;
+}
 .allCourses {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 0;
+}
 }
 </style>
 
