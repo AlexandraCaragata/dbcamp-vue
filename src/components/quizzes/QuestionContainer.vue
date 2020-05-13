@@ -1,7 +1,15 @@
 <template>
 	<div class="question-container">
 		<div>Question {{this.position}} of {{this.total}}</div>
-		<h2>{{this.question.text}}</h2>
+		<div class="animation">
+			<h2>{{this.question.text}}</h2>
+			
+			<div class="mood">
+			<div class="walking-guy"></div>
+              <img src="../../assets/svg/happy.svg" alt="" id="happy">
+              <img src="../../assets/svg/angry.svg" alt="" id="angry">
+            </div>
+		</div>
 		<label class="answer-label">
 			<input type="radio" :value="question.answer_1" v-model="picked">
 			{{this.question.answer_1}}
@@ -37,7 +45,17 @@
 		methods: {
 			submitAnswer: function () {
 				if (this.picked === this.question.correct_answer) {
+					document.getElementById("happy").style.display="block";
+					  document.getElementById("angry").style.display="none";
+					  document.querySelector(".walking-guy").style.display="none";
 					this.score += 1;
+				}
+
+				if (this.picked !== this.question.correct_answer) {
+					document.getElementById("angry").style.display="block";
+					  document.getElementById("happy").style.display="none";
+					  document.querySelector(".walking-guy").style.display="none";
+
 				}
 
 				this.$emit('markQuestionAnswered');
@@ -52,6 +70,53 @@
 </script>
 
 <style lang="scss">
+.animation{
+	display: grid;
+	grid-template-columns: 3fr 1fr;
+}
+.mood{
+  width: 150px;
+  height: auto;
+  position: relative;
+
+}
+.mood > img {
+  width: 100%;
+  position: absolute;
+	top: -55px;
+	display: none;
+}
+.walking-guy{
+  width: 401.5px;
+  height: 401px;
+ transform: scale(0.2);
+  background: url("../../assets/svg/walk-3.png");
+  animation: walk 1s steps(7)  5 , forward 5s linear   ;
+	position: absolute;
+	top: -185px;
+	right: -140px;
+
+}
+
+@keyframes walk{
+  0%{
+    background-position: 0px;
+
+  } 100%{
+    background-position: 2811px;
+
+  }
+}
+
+@keyframes forward {
+  0%{
+	  
+    transform: translateX(1200px);
+  } 100% {
+    transform: translateX(0px);
+  }
+}
+
 h2 {
 	font-weight: 100;
 	text-align: left;

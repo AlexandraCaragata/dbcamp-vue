@@ -37,10 +37,10 @@
 }
 
 .walking-guy{
-  width: 400.75px;
+  width: 401.5px;
   height: 401px;
-  background: url("../assets/svg/run.png");
-  animation: walk 1s steps(4)  infinite , forward 5s linear  infinite ;
+  background: url("../assets/svg/walk-4.png");
+  animation: walk 1s steps(7) infinite , forward 5s linear  1 ;
 
 }
 
@@ -48,7 +48,7 @@
   0%{
     background-position: 0px;
   } 100%{
-    background-position: 1603px;
+    background-position: 2811px;
   }
 }
 
@@ -56,7 +56,7 @@
   0%{
     transform: translateX(1200px);
   } 100% {
-    transform: translateX(-100px);
+    transform: translateX(0px);
   }
 }
 </style>
