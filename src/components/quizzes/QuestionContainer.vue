@@ -83,37 +83,28 @@
 .mood > img {
   width: 100%;
   position: absolute;
-	top: -55px;
+	top: -45px;
 	display: none;
+	right: -110px;
 }
-.walking-guy{
-  width: 401.5px;
+.walking-guy {
+  position: absolute;
+  top: -180px;
+  width: 401px;
   height: 401px;
- transform: scale(0.2);
-  background: url("../../assets/svg/walk-3.png");
-  animation: walk 1s steps(7)  5 , forward 5s linear   ;
-	position: absolute;
-	top: -185px;
-	right: -140px;
-
+  background: url("../../assets/svg/walk-2.png");
+  animation: walk 0.8s steps(7);
+transform: scale(0.25);
 }
 
-@keyframes walk{
-  0%{
+@keyframes walk {
+  0% {
     background-position: 0px;
-
-  } 100%{
-    background-position: 2811px;
-
+    right: -300px;
   }
-}
-
-@keyframes forward {
-  0%{
-	  
-    transform: translateX(1200px);
-  } 100% {
-    transform: translateX(0px);
+  100% {
+    background-position: 2810px;
+    right: -250px;
   }
 }
 
