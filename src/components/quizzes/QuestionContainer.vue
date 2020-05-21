@@ -83,28 +83,29 @@
 .mood > img {
   width: 100%;
   position: absolute;
-	top: -45px;
+	top: -3vw;
 	display: none;
-	right: -110px;
+	right: -5vw;
 }
 .walking-guy {
   position: absolute;
-  top: -180px;
+  top: -20vh;
   width: 401px;
   height: 401px;
   background: url("../../assets/svg/walk-2.png");
   animation: walk 0.8s steps(7);
 transform: scale(0.25);
+right: -14vw;
 }
 
 @keyframes walk {
   0% {
     background-position: 0px;
-    right: -300px;
+    right: -16vw;
   }
   100% {
     background-position: 2810px;
-    right: -250px;
+    right: -14vw;
   }
 }
 
