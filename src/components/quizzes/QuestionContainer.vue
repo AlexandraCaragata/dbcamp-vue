@@ -70,53 +70,55 @@
 </script>
 
 <style lang="scss">
-.animation{
-	display: grid;
-	grid-template-columns: 3fr 1fr;
-}
 .mood{
-  width: 150px;
-  height: auto;
-  position: relative;
+//   width: 100px;
+//   height: auto;
+//   position: relative;
+display: none;
 
 }
 .mood > img {
-  width: 100%;
-  position: absolute;
-	top: -3vw;
-	display: none;
-	right: -5vw;
+//   width: 100%;
+//   position: absolute;
+// 	top: -53vw;
+// 	display: none;
+// 	right: -65vw;
+display: none;
 }
 .walking-guy {
-  position: absolute;
-  top: -20vh;
-  width: 401px;
-  height: 401px;
-  background: url("../../assets/svg/walk-2.png");
-  animation: walk 0.8s steps(7);
-transform: scale(0.25);
-right: -14vw;
+//   position: absolute;
+//   top: -53vh;
+//   width: 401px; /* The full length of the sprite sheet divided by the amount of steps (2810/7) */
+//   height: 401px;
+//   background: url("../../assets/svg/walk-2.png");
+//   animation: walk 0.8s steps(7);
+// transform: scale(0.15);
+// right: -107vw;
+display: none;
 }
 
-@keyframes walk {
+/* @keyframes walk {
   0% {
     background-position: 0px;
-    right: -16vw;
+    right: -115vw;
   }
   100% {
     background-position: 2810px;
-    right: -14vw;
+    right: -107vw;
   }
-}
+} */
 
 h2 {
 	font-weight: 100;
 	text-align: left;
 }
+button {
+    width: 50%;
+    height: 2.5em;
+}
 
 .question-container {
-	width: 50vw;
-	margin: 5vh 25vw;
+	margin: 10px;
 	padding: 2vh 2vw;
 
 	background-color: #d3cecb;
@@ -138,5 +140,105 @@ input[type=radio] {
 	float: left;
 	width: fit-content;
 	margin-right: 1vw;
+}
+
+@media screen and (min-width: 1000px) {
+
+	.animation{
+	display: grid;
+	grid-template-columns: 3fr 1fr;
+}
+.mood{
+  width: 100px;
+  height: auto;
+  position: relative;
+  display: grid;
+
+}
+.mood > img {
+  width: 100%;
+  position: absolute;
+	top: -5vw;
+	display: none;
+	right: -13vw;
+}
+.walking-guy {
+  position: absolute;
+  top: -20vw;
+  width: 401px; /* The full length of the sprite sheet divided by the amount of steps (2810/7) */
+  height: 401px;
+  background: url("../../assets/svg/walk-2.png");
+  animation: walk 0.8s steps(7);
+transform: scale(0.16);
+right: -29vw;
+  display: grid;
+}
+
+@keyframes walk {
+  0% {
+    background-position: 0px;
+    right: -31vw;
+  }
+  100% {
+    background-position: 2810px;
+    right: -29vw;
+  }
+}
+
+.question-container {
+	margin: 5vw;
+	padding: 2vh 2vw;
+}
+}
+
+@media screen and (min-width: 1100px) {
+	button {
+    width: 30%;
+    height: 3em;
+}
+	.animation{
+	display: grid;
+	grid-template-columns: 3fr 1fr;
+}
+.mood{
+  width: 150px;
+  height: auto;
+  position: relative;
+
+}
+.mood > img {
+  width: 100%;
+  position: absolute;
+	top: -3vw;
+	display: none;
+	right: -5vw;
+}
+.walking-guy {
+  position: absolute;
+  top: -20vh;
+  width: 401px; /* The full length of the sprite sheet divided by the amount of steps (2810/7) */
+  height: 401px;
+  background: url("../../assets/svg/walk-2.png");
+  animation: walk 0.8s steps(7);
+transform: scale(0.25);
+right: -14vw;
+}
+
+@keyframes walk {
+  0% {
+    background-position: 0px;
+    right: -16vw;
+  }
+  100% {
+    background-position: 2810px;
+    right: -14vw;
+  }
+}
+
+.question-container {
+	width: 50vw;
+	margin: 5vh 25vw;
+	padding: 2vh 2vw;
+}
 }
 </style>
