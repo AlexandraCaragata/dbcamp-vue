@@ -3,77 +3,73 @@
     <!-- INTRODUCTION SECTION -->
     <div class="intro-container">
       <div class="intro-text">
-        <h1>Forum & Chat</h1>
+        <h1>Forum</h1>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum provident porro iure numquam tempora nam, deserunt maiores nemo illum alias accusamus voluptatibus eius dicta sit, consequatur obcaecati nostrum quibusdam delectus. Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-          <br />Eligendi numquam nisi minus eum veritatis quasi asperiores, modi sapiente. Dicta fuga magnam est maxime repudiandae explicabo vero adipisci tempora quod quas. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab, provident! Voluptate, explicabo? Tempore deserunt voluptatem architecto error aperiam repellendus sit omnis.
+          Our forum is a good place where you can go ahead and ask questions if you get stuck on something so you can get help from other users <br>
+          If you see an issue you know the answer to go ahead and help a fellow student in need!
         </p>
       </div>
     </div>
 
     <!-- FAQ -->
     <div class="faq-container">
-      <h2>Forums</h2>
+      <h2>Posts</h2>
       <ul>
-        <!-- No. 1 -->
-        <li>
+        <li v-for="forumPost in forumPosts">
           <input type="checkbox" checked />
           <i></i>
-          <h3>Languages Used</h3>
-          <p>This page was written in HTML and CSS. The CSS was compiled from SASS. I used Normalize as my CSS reset and -prefix-free to save myself some headaches. I haven't quite gotten the hang of Slim for compiling into HTML, but someday I'll use it since its syntax compliments that of SASS. Regardless, this could all be done in plain HTML and CSS.</p>
-        </li>
-        <!-- No. 2 -->
-        <li>
-          <input type="checkbox" checked />
-          <i></i>
-          <h3>Languages Used</h3>
-          <p>Using the sibling and checked selectors, we can determine the styling of sibling elements based on the checked state of the checkbox input element. One use, as demonstrated here, is an entirely CSS and HTML accordion element. Media queries are used to make the element responsive to different screen sizes.</p>
-        </li>
-        <!-- No. 3 -->
-        <li>
-          <input type="checkbox" checked />
-          <i></i>
-          <h3>Languages Used</h3>
-          <p>By making the open state default for when :checked isn't detected, we can make this system accessable for browsers that don't recognize :checked. The fallback is simply an open accordion. The accordion can be manipulated with Javascript (if needed) by changing the "checked" property of the input element.</p>
-        </li>
-
-        <!-- No. 4 -->
-        <li>
-          <input type="checkbox" checked />
-          <i></i>
-          <h3>Languages Used</h3>
-          <p>By making the open state default for when :checked isn't detected, we can make this system accessable for browsers that don't recognize :checked. The fallback is simply an open accordion. The accordion can be manipulated with Javascript (if needed) by changing the "checked" property of the input element.</p>
+          <h3>{{forumPost.subject}}</h3>
+          <div>
+            <p>{{forumPost.text}}</p>
+            <div class="comments">
+              <h3 class="comments-headline">Comments</h3>
+              <div class="comment">
+                <p>comment 1 text</p>
+              </div>
+              <div class="comment">
+                <p>comment 2 text</p>
+              </div>
+              <form class="add-comment-form">
+                <p>Add comment</p>
+                <textarea name="" id="" cols="100" rows="5"></textarea>
+                <button type="submit" class="button">Add comment</button>
+              </form>
+            </div>
+          </div>
         </li>
       </ul>
     </div>
 
-    <!--INPUT FELT -->
+    <!--INPUT CONTAINER -->
     <div class="input-container">
-      <h2>Chat</h2>
+      <h2>Add new forum post</h2>
+      <div class="error" v-if="showError">Please fill in all the fields</div>
 
-      <input type="text" id="subject" placeholder="Subject" />
+      <form @submit.prevent="addNewForumPost" @input="showError = false">
+        <input type="text" id="subject" placeholder="Subject" v-model="subject" />
+        <input type="text" id="chat" placeholder="Type here..." v-model="text"/>
 
-      <input type="text" id="chat" placeholder="Type here..." />
-
-      <button type="submit">Send</button>
+        <button type="submit">Send</button>
+      </form>
     </div>
   </div>
 </template>
-
-
-
 
 <style lang="scss">
 // INTRODUCTION SECTION
 
 .intro-container {
   margin: auto;
-  padding: 0px 20px;
+  padding: 0 20px;
 }
 
 .intro-text {
   line-height: 1.5;
   font-weight: 100;
+
+  p {
+    margin: 0 auto;
+  }
 }
 .intro-text > h1 {
   text-align: left;
@@ -83,6 +79,21 @@
 .faq-container {
   margin-top: 5%;
   padding: 0px 20px;
+
+  .comments {
+    margin-left: 3vw;
+    .comments-headline {
+      border-bottom: 1px lightgray dotted;
+    }
+
+    .comment, .add-comment-form {
+      margin-left: 3vw;
+    }
+
+    .comment {
+      border-bottom: 1px lightgray dotted;
+    }
+  }
 }
 
 p,
@@ -164,7 +175,7 @@ ul li input[type="checkbox"] {
   z-index: 1;
   opacity: 0;
 }
-ul li input[type="checkbox"]:checked ~ p {
+ul li input[type="checkbox"]:checked ~ div{
   margin-top: 0;
   max-height: 0;
   opacity: 0;
@@ -179,8 +190,8 @@ ul li input[type="checkbox"]:checked ~ i:after {
 
 //INPUT FELT
 .input-container {
-  margin-top: 5%;
-  padding: 0px 20px;
+  margin: 3vh auto;
+  padding: 0 2vw;
 }
 
 #subject {
@@ -230,25 +241,71 @@ button {
   width: 100%;
   height: 100px;
 }
-
 }
 </style>
 
 <script>
 import router from "../router";
 import {mapGetters} from "vuex";
+import formDataGenerator from "../services/formDataGenerator";
 
 export default {
   name: 'Forum',
-  computed: {
-    ...mapGetters([
-        'getUser',
-    ])
+  data: function () {
+    return {
+      text: '',
+      subject: '',
+      showError: false,
+      forumPosts: [],
+    };
   },
   mounted() {
     if (!this.getUser) {
       router.push({ name: 'Home' });
     }
+
+    this.getAllForumPosts();
   },
+  computed: {
+    ...mapGetters([
+      'getUser',
+    ]),
+  },
+  methods: {
+    validateForm: function() {
+      if(!this.text.length || !this.subject.length) {
+        this.showError = true;
+      }
+    },
+    addNewForumPost: async function() {
+      this.validateForm();
+
+      if (this.showError) {
+        return;
+      }
+
+      await fetch(`${process.env.VUE_APP_API_URL}/mongoDBConnections/insert-forum-posts.php`, {
+        method: 'POST',
+        body: formDataGenerator.generate({
+          text: this.text,
+          subject: this.subject,
+          userId: this.getUser.id,
+        }),
+      });
+
+      this.subject = '';
+      this.text = '';
+
+      this.getAllForumPosts();
+    },
+
+    getAllForumPosts: function () {
+      fetch(`${process.env.VUE_APP_API_URL}/mongoDBConnections/get-all-forum-posts.php`)
+        .then(response => response.json())
+        .then(data => {
+          this.forumPosts = data;
+      });
+    }
+  }
 }
 </script>

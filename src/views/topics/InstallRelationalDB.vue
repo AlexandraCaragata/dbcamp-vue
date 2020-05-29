@@ -5,7 +5,7 @@
 				:topicName="topic.name"
 				:topicIcon="topic.iconName"
 		>
-			<div>
+			<div class="topicText">
 				<p>Before beginning to install a relational database, you need to have completed the other courses so you understand how an entity diagram works and why normalization is an important part of a relational database.</p>
 				<p>After defining what the purpose of the database is, you need to gather information about the data. This information helps you to create the structure of the database and divide the data into subject-based tables. Choose a primary key for every table that uniquely identifies the rows.
 					The power of relational database lies in the relationship that can be defined between tables. Read much more about this and how to create the perfect structure in the course called “Entity Relationship Diagram”.</p>
@@ -15,13 +15,13 @@
 				<h3>MySQL</h3>
 				<p>MySQL is a relational databases, because it allows tables to be joined together and also supports the concept of foreign keys.
 					You need to install MySQL Database on your computer, and to do so, we recommend you to check out XAMPP. With XAMPP you install an apache server that includes PHP and MySQL. This is really smart now that you need PHP to write SQL statements.
-					Go to https://www.apachefriends.org/ an follow their esay guidance on how to install XAMPP.
+					Go to <em><a href="https://www.apachefriends.org/" target="_blank">https://www.apachefriends.org/</a></em> an follow their esay guidance on how to install XAMPP.
 				</p>
 				<p>Now you can go to your XAMPP application on your computer and run the servers needed. Remember whenever we use XAMPP our webpage is being served from a folder called htdocs in the XAMPP directory. You need to write all your files inside the htdocs to use php and MySQL. </p>
 
 				<h3>phpMyAdmin</h3>
 				<p>phpMyAdmin is one of the most popular applications for MySQL database management. It is a free tool written in PHP. It gives us a user friendly interface to manipulate the data inside the database and create the structure from our entity diagram. And what is really cool about this tool, is that you can write SQL statements inside phpMyAdmin and run them right away.
-					To access phpMyAdmin, go to http://localhost:8080/phpmyadmin. </p>
+					To access phpMyAdmin, go to <em>http://localhost:8080/phpmyadmin</em>.</p>
 				<p>
 					Now you are ready to easily create your own database and make all the tables and columns needed for you project.
 				</p>
@@ -37,6 +37,24 @@
 		</div>
 	</div>
 </template>
+
+<style lang="scss">
+.topicText {
+	p, dt {
+		line-height: 2em;
+		font-size: 20px;
+		font-weight: 300;
+	}
+
+	h3 {
+		font-size: 20px;
+	}
+
+	.enumerationList {
+		margin-left: 3vw;
+	}
+}
+</style>
 
 <script>
 	import ForumChatBanner from "@/components/layout/ForumChatBanner";

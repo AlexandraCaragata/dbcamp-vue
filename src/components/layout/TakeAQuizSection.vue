@@ -3,7 +3,7 @@
 		<div class="go-to-quiz">
 			<h2>TAKE THE QUIZ</h2>
 			<p>And get a diploma</p>
-			<button class="btn-goToQuiz" v-on:click="goToQuiz">START</button>
+			<button class="btn-goToQuiz" @click="goToQuiz">START</button>
 		</div>
 	</section>
 </template>
@@ -18,6 +18,7 @@ export default {
 	},
 	methods: {
 		goToQuiz: function() {
+			console.log('here');
 			router.push({ name: 'quiz', params: { quizId: this.topic.quiz_id }});
 		}
 	}

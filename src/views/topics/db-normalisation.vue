@@ -5,30 +5,24 @@
       :topicName="topic.name"
       :topicIcon="topic.iconName"
     >
-     <div>
+     <div class="topicText">
       <p>Normalization is a formal technique for analysing relations based on their primary key and functional dependencies (Codd, 1972b). The technique involves a series of rules that can be used to divide larger tables into smaller tables and link them together using relationships. The purpose of Normalization is to eliminate unnecessary or useless data and ensure data is stored logically.</p>
       <h3>The normalization rules are divided into the following normal forms:</h3>
-      <p>1. 	First Normal Form (1 NF).
-       Here is each column unique.
-      </p>
+       <dl class="enumerationList">
+         <dt>1. First Normal Form (1 NF). Here each column is unique.</dt>
+         <dt>2. Second Normal Form (2 NF).
+           The entity should be considered already in 1NF, and all attributes within the entity should depend alone on the unique identifier of the entity.</dt>
+         <dt>3. Third Normal Form (3 NF).
+           In this case, the entity should be considered already in 2NF, and no column entry should be dependent on any other value other than the key for the table. If such an entity exists, move it outside into a new table.</dt>
+         <dt>
+           4. 	BCNF
+           Same rules as in 3NF plus all tables in the database should be only one primary key.
+         </dt>
+       </dl>
 
       <p>
-       2. 	Second Normal Form (2 NF).
-       The entity should be considered already in 1NF, and all attributes within the entity should depend alone on the unique identifier of the entity.
-      </p>
-
-      <p>
-       3. 	Third Normal Form (3 NF).
-       In this case, the entity should be considered already in 2NF, and no column entry should be dependent on any other value other than the key for the table. If such an entity exists, move it outside into a new table.
-      </p>
-
-      <p>
-        4. 	BCNF
-        Same rules as in 3NF plus all tables in the database should be only one primary key.
-      </p>
-
-      <p>
-       With exception of 1NF, all these normal forms are based on functional dependencies among the attributes of a relation (Maier, 1983). BCNF is a stronger definition of 3 NF. You can find higher normal forms that goes beyond BCNF, but in this course we will only describe the first three normal forms.
+       With exception of 1NF, all these normal forms are based on functional dependencies among the attributes of a relation (Maier, 1983).
+        BCNF is a stronger definition of 3 NF. You can find higher normal forms that goes beyond BCNF, but in this course we will only describe the first three normal forms.
       </p>
 
       <h3>Example:</h3>
@@ -65,9 +59,21 @@ img.topic-image {
   height: auto;
 }
 
+.topicText {
+  p, dt {
+    line-height: 2em;
+    font-size: 20px;
+    font-weight: 300;
+  }
 
+  h3 {
+    font-size: 20px;
+  }
 
-
+  .enumerationList {
+    margin-left: 3vw;
+  }
+}
 </style>
 
 

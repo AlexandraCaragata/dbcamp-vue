@@ -39,22 +39,28 @@ export default {
 		...mapActions([
 			'verifyUser'
 		]),
-		login: function () {
-			const verified = this.verifyUser({ username: this.username, password: this.password });
+		login: async function () {
+			this.verifyUser({ username: this.username, password: this.password }).then((verified) => {
+				console.log(verified);
+				if (verified) {
+					this.$emit('hideLogin');
+					this.username = '';
+					this.password = '';
+					return;
+				}
 
-			if (verified) {
-				this.$emit('hideLogin');
-				return;
-			}
-
-			this.showError = true;
+				this.showError = true;
+			});
 		}
 	}
 }
 </script>
 
 <style lang="scss">
-
+.error {
+	color: darkred;
+	font-size: 18px;
+}
 .login-form {
     background-color: #d3cecb;
     z-index: 999;
@@ -73,7 +79,7 @@ export default {
     top: 20%;
     left: 8%;
     position: absolute;
-   
+
 		a {
 		color: coral;
 		cursor: pointer;

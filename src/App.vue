@@ -55,7 +55,7 @@
   }
 
   button {
-    width: 30%;
+    width: 40%;
     height: 3em;
 
     border-radius: 5px;
@@ -65,6 +65,10 @@
     color: white;
     font-size: 16px;
     cursor: pointer;
+
+    &:hover {
+      box-shadow: 4px 8px 8px rgba(0,0,0,0.3);
+    }
   }
 
   // this class adds opacity on the page begin the login modal
@@ -90,7 +94,7 @@
     async mounted() {
       if (localStorage.user) {
         this.addUser(JSON.parse(localStorage.user));
-        await this.fetchTopics();9
+        await this.fetchTopics();
       }
     },
     methods: {

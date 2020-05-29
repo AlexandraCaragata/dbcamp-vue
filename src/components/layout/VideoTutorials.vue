@@ -22,9 +22,6 @@
 		props: {
 			videoTutorials: Array,
 		},
-		mounted() {
-			console.log(this.videoTutorials);
-		}
 	}
 </script>
 

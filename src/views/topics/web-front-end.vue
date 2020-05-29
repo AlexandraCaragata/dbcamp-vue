@@ -5,21 +5,40 @@
         :topicName="topic.name"
         :topicIcon="topic.iconName"
     >
-      <div>
+      <div class="topicText">
         <p>Since SQL is not Turing complete, the business logic should be executed outside the DBMS, which is then only invoked for the execution of the corresponding queries.</p>
         <p>Programming languages offer different solutions to access the database from inside your application. There are two approaches to accessing SQL:</p>
-        <p><em>Embedded SQL</em> A preprocessor submits the SQL statements to the DBMS. SQL-related errors will be caught at compile time, before execution takes place.</p>
-        <p><em>Dynamic SQL</em> The SQL queries are written and stored in the programming language, then submitted to the DBMS via a database driver. The result returned by the DBMS are then stored into variables of the programming language.</p>
+        <dl class="enumerationList">
+          <dt>
+            <em>Embedded SQL</em> A preprocessor submits the SQL statements to the DBMS. SQL-related errors will be caught at compile time, before execution takes place.
+          </dt>
+          <dt>
+            <em>Dynamic SQL</em> The SQL queries are written and stored in the programming language, then submitted to the DBMS via a database driver. The result returned by the DBMS are then stored into variables of the programming language.
+          </dt>
+        </dl>
 
         <p>One example of how to connect to a database is by using PDO (PHP Data Objects). It offers:</p>
-        <p><em>Coding consistency</em> Single uniform interface no matter which database is being accessed</p>
-        <p><em>Flexibility</em> Database drivers are loaded runtime</p>
-        <p><em>Object-Oriented Features</em></p>
-        <p><em>Performance</em></p>
+        <dl class="enumerationList">
+          <dt>
+            <em>Coding consistency</em> Single uniform interface no matter which database is being accessed
+          </dt>
+          <dt>
+            <em>Flexibility</em> Database drivers are loaded runtime
+          </dt>
+          <dt>
+            <em>Object-Oriented Features</em>
+          </dt>
+          <dt>
+            <em>Performance</em>
+          </dt>
+        </dl>
 
         <p>In the images bellow you can see an example of how you can connect to a database by using PDO</p>
-        <img src="../../assets/PDOConnect.png" alt="">
-        <img src="../../assets/PDOAdd.png" alt="">
+
+        <div class="photos-container">
+          <img src="../../assets/PDOConnect.png" alt="">
+          <img src="../../assets/PDOAdd.png" alt="">
+        </div>
 
         <h3>Watch the videos for more information!</h3>
       </div>
@@ -35,7 +54,33 @@
   </div>
 </template>
 
-<style lang="scss" >
+<style lang="scss">
+.topicText {
+  p, dt {
+    line-height: 2em;
+    font-size: 20px;
+    font-weight: 300;
+  }
+
+  h3 {
+    font-size: 20px;
+  }
+
+  .enumerationList {
+    margin-left: 3vw;
+  }
+}
+.photos-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  img {
+    height: 300px;
+    width: auto;
+    margin-bottom: 3vh;
+  }
+}
 </style>
 
 

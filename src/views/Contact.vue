@@ -1,24 +1,29 @@
 <template>
   <div>
     <div>
-      <form id="sendEmail" @submit.prevent="sendEmail">
-          <div class="head-form">
-      				<h1>Contact us</h1>
+      <form id="sendEmail" @submit.prevent="sendEmail" @input="showError = false">
+        <div class="head-form">
+          <h1>Contact us</h1>
 				</div>
+
+        <div class="error" v-if="showError">{{errorMessage}}</div>
+        <div class="success" v-if="showSuccess">{{successMessage}}</div>
+
         <div class="form-container">
           <div class="form-wrapper">
           <label for="contact-name">Name
-          <input type="text" name="contact-name" placeholder="Name" /></label>
+            <input type="text" id="contact-name" name="contact-name" placeholder="Name" v-model="name"/>
+          </label>
 
           <label for="email">Email
-          <input type="text" name="email" placeholder="Email" /></label>
+            <input type="text" id="email" name="email" placeholder="Email" v-model="email"/>
+          </label>
           </div>
           <label for="subject">Subject</label>
-          <input type="text" name="subject" placeholder="Subject" />
+          <input type="text" id="subject" name="subject" placeholder="Subject" v-model="subject"/>
 
           <label for="contactInput">Type you message here</label>
-          <input type="text" id="contactInput" name="contactInput" />
-          
+          <input type="text" id="contactInput" name="contactInput" placeholder="Type you message here" v-model="message"/>
 
           <button type="submit">Send Email</button>
         </div>
@@ -29,29 +34,29 @@
 
 <style lang="scss">
 #sendEmail {
-	padding: 10px;
+  padding: 10px;
   background-color: #d3cecb;
-		a {
-			color: coral;
-			cursor: pointer;
-		}
-		h1{
-			text-align: center;
-		}
-	}
+    a {
+      color: coral;
+      cursor: pointer;
+    }
+    h1{
+      text-align: center;
+    }
+  }
 
-	input {
-	width: 90%;
+  input {
+  width: 90%;
     background: #fff;
     color: #333;
     padding: 10px;
     border-radius: 5px;
-	border: solid 1px #d3cecb;
-	margin-bottom: 20px;
+  border: solid 1px #d3cecb;
+  margin-bottom: 20px;
 }
 input:focus {
     border: solid #9b646f 2px;
-} 
+}
 
 @media screen and (min-width: 500px) {
 #sendEmail {
@@ -78,25 +83,73 @@ input:focus {
   min-height: 100px;
 }
 }
+.success {
+  color: darkgreen;
+}
 </style>
 
 <script>
+import formDataGenerator from "../services/formDataGenerator";
+
 export default {
   name: "SignUp",
+  data: function () {
+    return {
+      name: '',
+      subject: '',
+      email: '',
+      message: '',
+      showError: false,
+      errorMessage: '',
+      showSuccess: false,
+      successMessage: '',
+    };
+  },
   methods: {
+    validateForm: function () {
+      if (!this.name || !this.email || !this.subject || !this.message) {
+        this.showError = true;
+        return 'Please fill in all of the fields';
+      }
+
+      if (!this.email.match(/@/)) {
+        this.showError = true;
+        return 'Please enter a valid email address';
+      }
+    },
     sendEmail: async function() {
-      var oForm = document.querySelector("#sendEmail");
-      console.log(new FormData(oForm));
-      var jConnection = await fetch(
-        "http://192.168.64.2/dbcamp-server/emailService/api-send-email.php",
+      this.errorMessage = this.validateForm();
+
+      if (this.errorMessage) {
+        return;
+      }
+
+      const response = await fetch(
+        `${process.env.VUE_APP_API_URL}/emailService/api-send-email.php`,
         {
           method: "POST",
-          body: new FormData(oForm)
+          body: formDataGenerator.generate({
+            message: this.message,
+            subject: this.subject,
+            emailTo: 'elearning.dbcamp@gmail.com',
+            replyEmail: this.email,
+            emailFrom: this.email,
+            name: this.name,
+          })
         }
       );
-      //This could also be.json
-      var sData = await jConnection.text();
-      console.log(sData);
+
+      const data = await response.text();
+
+      this.showSuccess = true;
+      this.successMessage = 'Message successfully sent!';
+
+      console.log(data);
+
+      this.name = '';
+      this.subject = '';
+      this.email = '';
+      this.message = '';
     }
   }
 };

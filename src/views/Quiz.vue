@@ -25,7 +25,6 @@ export default {
 	},
 	components: { QuestionContainer },
 	computed: {
-		// since this one is a computed method it will automatically update the question object when the position changes
 		question() {
 			return this.quiz.questions[this.questionNumber - 1];
 		},
@@ -39,7 +38,6 @@ export default {
 			return;
 		}
 
-		// here it calls the API and gets all the necessary information for the quiz: quiz title and questions
 		fetch(`${process.env.VUE_APP_API_URL}/databaseConnections/quizzes/get-quiz.php?quizId=${this.$route.params.quizId}`)
 			.then(async (response) => {
 			const body = await response.json();

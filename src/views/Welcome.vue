@@ -72,15 +72,20 @@ export default {
       return this.getUser.username;
     }
   },
-  async mounted() {
-    if (!this.getUser) {
-      await router.push({ name: 'Home' });
-    }
-  },
   methods: {
+    ...mapActions([
+      'fetchTopics'
+    ]),
     goToTopic: function (link) {
       router.push({ name: link });
     }
-  }
+  },
+  async mounted() {
+    if (!this.getUser) {
+      router.push({ name: 'Home' });
+    }
+
+    await this.fetchTopics();
+  },
 };
 </script>
