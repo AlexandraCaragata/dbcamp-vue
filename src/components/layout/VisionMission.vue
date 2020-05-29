@@ -5,6 +5,7 @@
         Our mission is to help everyone, regardless of expertise, to understand Databases, what they are used for and how they can be used. We want to simplify Databases by developing educational materials with relatable examples from everyday life. Our e-learning system aims to guide you through Databases in a fun, simple and educational way whenever YOU have the time for it.
         </p><p>Join the journey and become a better developer!
       </p>
+      <button v-on:click="goToSignup" class="btn-signUp">Try a course for free!</button>
     </div>
   </div>
 </template>
@@ -31,6 +32,14 @@
   color: white;
   padding: 10px;
   font-size: 16px;
+  text-align: center;
+}
+
+.btn-signUp{
+  background-color: white;
+  color: #2e4e6b;
+  width: 100%;
+
 }
 
 @media screen and (min-width: 450px) {
@@ -44,6 +53,11 @@
     padding: 20px;
     font-size: 22px;
   }
+  .btn-signUp{
+  font-size: 20px;
+  height: 50px;
+  width: 40%;
+}
 
 }
 @media screen and (min-width: 970px) {
@@ -61,6 +75,11 @@
 </style>
 <script>
 export default {
-  name: "VisionMission.vue"
+  name: "VisionMission.vue",
+    methods: {
+    goToSignup: function() {
+      location.href = "/sign-up";
+    }
+  }
 };
 </script>
