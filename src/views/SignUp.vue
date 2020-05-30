@@ -38,7 +38,7 @@
 <style lang="scss">
 .sign-up-form {
 	padding: 10px;
-    background-color: #d3cecb;
+    background-color: #EBE5E1;
 	width: 100%;
 		a {
 			color: coral;
@@ -54,7 +54,7 @@
     color: #333;
     padding: 10px;
     border-radius: 5px;
-	border: solid 1px #d3cecb;
+	border: solid 1px #EBE5E1;
 	margin-bottom: 20px;
 }
 input:focus {
@@ -70,7 +70,7 @@ input:focus {
     margin: 2% auto;
     box-shadow: 0 9px 50px hsla(20, 67%, 75%, 0.31);
     padding: 2%;
-    background-color: #d3cecb;
+    background-color: #EBE5E1;
 	}
 	input {
 	width: 100%;

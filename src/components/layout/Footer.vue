@@ -43,7 +43,7 @@
     padding: 2vh 0 0 0;
 		bottom: 0;
 		width: 100%; 
-		background-color: #d3cecb;
+		background-color: #EBE5E1;
     padding-bottom: 30px;
 	}
 

@@ -144,7 +144,7 @@ ul li {
   margin: 0;
   padding-bottom: 4px;
   padding-top: 18px;
-  border-top: 1px dotted #dce7eb;
+  border-top: 1px dotted #EBE5E1;
 }
 
 ul li i {

@@ -62,7 +62,7 @@ export default {
 	font-size: 18px;
 }
 .login-form {
-    background-color: #d3cecb;
+    background-color: #EBE5E1;
     z-index: 999;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -101,7 +101,7 @@ export default {
 
 @media screen and (min-width: 1000px) {
 .login-form {
-	background-color: #d3cecb;
+	background-color: #EBE5E1;
 	z-index: 999;
 
 	display: flex;

@@ -33,7 +33,7 @@
 		flex-direction: row;
 		justify-content: space-between;
 		align-items: center;
-		background-color: #d3cecb;
+		background-color: #EBE5E1;
 		padding: 0 3vw;
 	}
 

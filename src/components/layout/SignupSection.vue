@@ -13,7 +13,7 @@
 
 <style>
 .signup-section {
-  background-color: #d3cecb;
+  background-color: #EBE5E1;
   padding: 20px;
 }
 .signup-container {

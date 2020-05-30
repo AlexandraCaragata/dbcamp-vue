@@ -33,7 +33,7 @@
 
 <style lang="scss">
 .course {
-	border: 2px solid #d3cecb;
+	border: 2px solid #EBE5E1;
 	padding: 10px;
 	margin-bottom: 18px;
 	border-radius: 5px;
