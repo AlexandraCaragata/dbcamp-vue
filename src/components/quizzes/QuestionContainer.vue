@@ -80,6 +80,8 @@ display: none;
 .walking-guy {
 display: none;
 }
+
+
 h2 {
 	font-weight: 100;
 	text-align: left;
