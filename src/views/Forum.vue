@@ -5,8 +5,8 @@
       <div class="intro-text">
         <h1>Forum</h1>
         <p>
-          Our forum is a good place where you can go ahead and ask questions if you get stuck on something so you can get help from other users <br>
-          If you see an issue you know the answer to go ahead and help a fellow student in need!
+          Our forum is a good place where you can go ahead and ask questions if you get stuck on something so you can get help from other users
+          <br />If you see an issue you know the answer to go ahead and help a fellow student in need!
         </p>
       </div>
     </div>
@@ -16,9 +16,12 @@
       <h2>Posts</h2>
       <ul>
         <li v-for="forumPost in forumPosts">
+          <label>
+            <h3>{{forumPost.subject}}</h3>
+          </label>
+
           <input type="checkbox" checked />
-          <i></i>
-          <h3>{{forumPost.subject}}</h3>
+
           <div>
             <p>{{forumPost.text}}</p>
             <div class="comments">
@@ -31,7 +34,7 @@
               </div>
               <form class="add-comment-form">
                 <p>Add comment</p>
-                <textarea name="" id="" cols="100" rows="5"></textarea>
+                <textarea name id cols="100" rows="5"></textarea>
                 <button type="submit" class="button">Add comment</button>
               </form>
             </div>
@@ -47,7 +50,7 @@
 
       <form @submit.prevent="addNewForumPost" @input="showError = false">
         <input type="text" id="subject" placeholder="Subject" v-model="subject" />
-        <input type="text" id="chat" placeholder="Type here..." v-model="text"/>
+        <input type="text" id="chat" placeholder="Type here..." v-model="text" />
 
         <button type="submit">Send</button>
       </form>
@@ -86,7 +89,8 @@
       border-bottom: 1px lightgray dotted;
     }
 
-    .comment, .add-comment-form {
+    .comment,
+    .add-comment-form {
       margin-left: 3vw;
     }
 
@@ -144,38 +148,13 @@ ul li {
   margin: 0;
   padding-bottom: 4px;
   padding-top: 18px;
-  border-top: 1px dotted #EBE5E1;
+  border-top: 1px dotted #dce7eb;
 }
 
-ul li i {
-  position: absolute;
-  transform: translate(-6px, 0);
-  margin-top: 16px;
-  right: 0;
-}
-ul li i:before,
-ul li i:after {
-  content: "";
-  position: absolute;
-  background-color: #354865;
-  width: 3px;
-  height: 9px;
-}
-ul li i:before {
-  transform: translate(-2px, 0) rotate(45deg);
-}
-ul li i:after {
-  transform: translate(2px, 0) rotate(-45deg);
-}
 ul li input[type="checkbox"] {
-  position: absolute;
   cursor: pointer;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-  opacity: 0;
 }
-ul li input[type="checkbox"]:checked ~ div{
+ul li input[type="checkbox"]:checked ~ div {
   margin-top: 0;
   max-height: 0;
   opacity: 0;
@@ -188,6 +167,9 @@ ul li input[type="checkbox"]:checked ~ i:after {
   transform: translate(-2px, 0) rotate(-45deg);
 }
 
+label {
+  display: inline-block;
+}
 //INPUT FELT
 .input-container {
   margin: 3vh auto;
@@ -211,69 +193,67 @@ button {
   background-color: #354865;
   color: white;
   font-size: 16px;
-  margin-bottom: 10px ;
+  margin-bottom: 10px;
 }
 
 @media screen and (min-width: 970px) {
-// INTRODUCTION SECTION
+  // INTRODUCTION SECTION
 
-.intro-container {
-  margin: auto;
-  padding: 0px 120px;
-}
+  .intro-container {
+    margin: auto;
+    padding: 0px 120px;
+  }
 
-// FAQ
-.faq-container {
-  margin-top: 5%;
-  padding: 0px 120px;
-}
-//INPUT FELT
-.input-container {
-  margin-top: 5%;
-  padding: 0px 120px;
-}
+  // FAQ
+  .faq-container {
+    margin-top: 5%;
+    padding: 0px 120px;
+  }
+  //INPUT FELT
+  .input-container {
+    margin-top: 5%;
+    padding: 0px 120px;
+  }
 
-#subject {
-  width: 100%;
-}
+  #subject {
+    width: 100%;
+  }
 
-#chat {
-  width: 100%;
-  height: 100px;
-}
+  #chat {
+    width: 100%;
+    height: 100px;
+  }
 }
 </style>
 
 <script>
 import router from "../router";
-import {mapGetters} from "vuex";
+import { mapGetters } from "vuex";
 import formDataGenerator from "../services/formDataGenerator";
 
 export default {
-  name: 'Forum',
-  data: function () {
+  name: "Forum",
+  data: function() {
     return {
-      text: '',
-      subject: '',
+      text: "",
+      subject: "",
       showError: false,
-      forumPosts: [],
+      forumPosts: []
     };
   },
   mounted() {
     if (!this.getUser) {
-      router.push({ name: 'Home' });
+      router.push({ name: "Home" });
     }
 
     this.getAllForumPosts();
   },
   computed: {
-    ...mapGetters([
-      'getUser',
-    ]),
+    ...mapGetters(["getUser"])
   },
   methods: {
     validateForm: function() {
-      if(!this.text.length || !this.subject.length) {
+      if (!this.text.length || !this.subject.length) {
         this.showError = true;
       }
     },
@@ -284,28 +264,33 @@ export default {
         return;
       }
 
-      await fetch(`${process.env.VUE_APP_API_URL}/mongoDBConnections/insert-forum-posts.php`, {
-        method: 'POST',
-        body: formDataGenerator.generate({
-          text: this.text,
-          subject: this.subject,
-          userId: this.getUser.id,
-        }),
-      });
+      await fetch(
+        `${process.env.VUE_APP_API_URL}/mongoDBConnections/insert-forum-posts.php`,
+        {
+          method: "POST",
+          body: formDataGenerator.generate({
+            text: this.text,
+            subject: this.subject,
+            userId: this.getUser.id
+          })
+        }
+      );
 
-      this.subject = '';
-      this.text = '';
+      this.subject = "";
+      this.text = "";
 
       this.getAllForumPosts();
     },
 
-    getAllForumPosts: function () {
-      fetch(`${process.env.VUE_APP_API_URL}/mongoDBConnections/get-all-forum-posts.php`)
+    getAllForumPosts: function() {
+      fetch(
+        `${process.env.VUE_APP_API_URL}/mongoDBConnections/get-all-forum-posts.php`
+      )
         .then(response => response.json())
         .then(data => {
           this.forumPosts = data;
-      });
+        });
     }
   }
-}
+};
 </script>

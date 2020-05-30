@@ -71,15 +71,43 @@
 
 <style lang="scss">
 .mood{
+//   width: 100px;
+//   height: auto;
+//   position: relative;
 display: none;
 
 }
 .mood > img {
+//   width: 100%;
+//   position: absolute;
+// 	top: -53vw;
+// 	display: none;
+// 	right: -65vw;
 display: none;
 }
 .walking-guy {
+//   position: absolute;
+//   top: -53vh;
+//   width: 401px; /* The full length of the sprite sheet divided by the amount of steps (2810/7) */
+//   height: 401px;
+//   background: url("../../assets/svg/walk-2.png");
+//   animation: walk 0.8s steps(7);
+// transform: scale(0.15);
+// right: -107vw;
 display: none;
 }
+
+/* @keyframes walk {
+  0% {
+    background-position: 0px;
+    right: -115vw;
+  }
+  100% {
+    background-position: 2810px;
+    right: -107vw;
+  }
+} */
+
 h2 {
 	font-weight: 100;
 	text-align: left;
@@ -93,7 +121,7 @@ button {
 	margin: 10px;
 	padding: 2vh 2vw;
 
-	background-color: #EBE5E1;
+	background-color: #d3cecb;
 	border-radius: 5px;
 	border-top: 2px solid dimgray;
 }

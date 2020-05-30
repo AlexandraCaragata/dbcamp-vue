@@ -35,7 +35,7 @@
 <style lang="scss">
 #sendEmail {
   padding: 10px;
-  background-color: #EBE5E1;
+  background-color: #d3cecb;
     a {
       color: coral;
       cursor: pointer;
@@ -51,7 +51,7 @@
     color: #333;
     padding: 10px;
     border-radius: 5px;
-  border: solid 1px #EBE5E1;
+  border: solid 1px #d3cecb;
   margin-bottom: 20px;
 }
 input:focus {
@@ -67,7 +67,7 @@ input:focus {
     margin: 2% auto;
     box-shadow: 0 9px 50px hsla(20, 67%, 75%, 0.31);
     padding: 2%;
-    background-color: #EBE5E1;
+    background-color: #d3cecb;
 	}
 	input {
 	width: 100%;
