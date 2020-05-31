@@ -86,7 +86,7 @@
   .topicText {
     p, dt {
       line-height: 2em;
-      font-size: 20px;
+      font-size: 16px;
       font-weight: 300;
     }
 
