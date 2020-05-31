@@ -57,6 +57,7 @@
   button {
     width: 40%;
     height: 3em;
+    cursor: pointer;
 
     border-radius: 5px;
     border: none;
