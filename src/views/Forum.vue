@@ -14,15 +14,14 @@
     <!-- FAQ -->
     <div class="faq-container">
       <h2>Posts</h2>
-      <ul>
-        <li v-for="forumPost in forumPosts">
-          <label>
+      <div>
+        <div v-for="forumPost in forumPosts">
+          <label v-on:click="displayComments()">
             <h3>{{forumPost.subject}}</h3>
+            	<div style="text-align: right;font-size: 30px;">&#8675;</div>
           </label>
 
-          <input type="checkbox" checked />
-
-          <div>
+          <div class="comment-wrapper">
             <p>{{forumPost.text}}</p>
             <div class="comments">
               <h3 class="comments-headline">Comments</h3>
@@ -37,8 +36,8 @@
               </form>
             </div>
           </div>
-        </li>
-      </ul>
+        </div>
+      </div>
     </div>
 
     <!--INPUT CONTAINER -->
@@ -97,10 +96,16 @@
     }
   }
 }
+.comment-wrapper{
+  display: none;
+}
+label{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  cursor: pointer;
+}
 
-p,
-ul li i:before,
-ul li i:after {
+p {
   transition: all 0.25s ease-in-out;
 }
 
@@ -132,41 +137,6 @@ p {
   transform: translate(0, 0);
   margin-top: 14px;
   z-index: 2;
-}
-
-ul {
-  list-style: none;
-  perspective: 900;
-  padding: 0;
-  margin: 0;
-}
-ul li {
-  position: relative;
-  padding: 0;
-  margin: 0;
-  padding-bottom: 4px;
-  padding-top: 18px;
-  border-top: 1px dotted #EBE5E1;
-}
-
-ul li input[type="checkbox"] {
-  cursor: pointer;
-}
-ul li input[type="checkbox"]:checked ~ div {
-  margin-top: 0;
-  max-height: 0;
-  opacity: 0;
-  transform: translate(0, 50%);
-}
-ul li input[type="checkbox"]:checked ~ i:before {
-  transform: translate(2px, 0) rotate(45deg);
-}
-ul li input[type="checkbox"]:checked ~ i:after {
-  transform: translate(-2px, 0) rotate(-45deg);
-}
-
-label {
-  display: inline-block;
 }
 //INPUT FELT
 .input-container {
@@ -279,6 +249,11 @@ export default {
       this.text = "";
 
       this.getAllForumPosts();
+    },
+
+    displayComments: function() {
+
+      document.querySelector(".comment-wrapper").style.display="block";
     },
 
     getAllForumPosts: function() {
