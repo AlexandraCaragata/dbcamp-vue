@@ -14,14 +14,14 @@
     <!-- FAQ -->
     <div class="faq-container">
       <h2>Posts</h2>
-      <div>
-        <div v-for="forumPost in forumPosts">
-          <label v-on:click="displayComments()">
+      <ul>
+        <li v-for="forumPost in forumPosts" :key="forumPost._id.$oid">
+          <label @click="showContent(forumPost._id.$oid)">
             <h3>{{forumPost.subject}}</h3>
-            	<div style="text-align: right;font-size: 30px;">&#8675;</div>
+            <div style="text-align: right;font-size: 30px;">&#8675;</div>
           </label>
 
-          <div class="comment-wrapper">
+          <div class="content-wrapper" :style="{display: (!hide && openedForum === forumPost._id.$oid) ? 'block' : 'none'}">
             <p>{{forumPost.text}}</p>
             <div class="comments">
               <h3 class="comments-headline">Comments</h3>
@@ -32,12 +32,12 @@
               <form class="add-comment-form">
                 <p>Add comment</p>
                 <textarea cols="100" rows="5" placeholder="Comment" v-model="commentText"></textarea>
-                <button type="submit" class="button" @click="addComment(forumPosts._id.$oid)">Add comment</button>
+                <button class="button" @click.prevent="addComment(forumPost._id.$oid)">Add comment</button>
               </form>
             </div>
           </div>
-        </div>
-      </div>
+        </li>
+      </ul>
     </div>
 
     <!--INPUT CONTAINER -->
@@ -96,9 +96,26 @@
     }
   }
 }
-.comment-wrapper{
+
+ul {
+  list-style: none;
+  perspective: 900;
+  padding: 0;
+  margin: 0;
+}
+ul li {
+  position: relative;
+  padding: 0;
+  margin: 0;
+  padding-bottom: 4px;
+  padding-top: 18px;
+  border-top: 1px dotted #EBE5E1;
+}
+
+.content-wrapper{
   display: none;
 }
+
 label{
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -207,7 +224,9 @@ export default {
       subject: '',
       commentText: '',
       showError: false,
-      forumPosts: []
+      forumPosts: [],
+      hide: true,
+      openedForum: '',
     };
   },
   mounted() {
@@ -251,11 +270,6 @@ export default {
       this.getAllForumPosts();
     },
 
-    displayComments: function() {
-
-      document.querySelector(".comment-wrapper").style.display="block";
-    },
-
     getAllForumPosts: function() {
       fetch(
         `${process.env.VUE_APP_API_URL}/mongoDBConnections/get-all-forum-posts.php`
@@ -276,7 +290,7 @@ export default {
         });
     },
 
-    addComment: async function (forumPostId) {
+    addComment: async function(forumPostId) {
       await fetch(
         `${process.env.VUE_APP_API_URL}/mongoDBConnections/insert-forum-comment.php`,
         {
@@ -292,6 +306,10 @@ export default {
       this.commentText = "";
 
       this.getAllForumPosts();
+    },
+    showContent: function(forumPostId) {
+      this.hide = !this.hide;
+      this.openedForum = forumPostId;
     }
   }
 };

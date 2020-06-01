@@ -3,7 +3,7 @@
 		<div
 				class="video-tutorial"
 				v-for="tutorial in videoTutorials"
-				v-bind:key="tutorial.tutorialId">
+				:key="tutorial.tutorialId">
 			<iframe
 					:src="tutorial.videoLink"
 					frameborder="0"

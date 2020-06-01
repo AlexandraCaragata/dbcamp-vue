@@ -71,25 +71,10 @@
 				videoTutorials: [
 					{
 						tutorialId: 1,
-						videoLink: "https://www.youtube.com/embed/jc0Q7OAeRu0",
-						tutorialName: "First Course",
-						tutorialText:
-							"Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus repellat maiores ipsum adipisci laudantium fugit, aliquam saepe distinctio unde, reiciendis, facilis sequi neque officia iusto? Rerum repellendus accusantium tempore? Pariatur."
+						videoLink: "https://www.youtube.com/embed/MlHcFFTuQGI",
+						tutorialName: "How to install a relational database",
+						tutorialText: '',
 					},
-					{
-						tutorialId: 2,
-						videoLink: "https://www.youtube.com/embed/jc0Q7OAeRu0",
-						tutorialName: "Second Course",
-						tutorialText:
-							"Korem ipsum dolor sit, amet consectetur adipisicing elit. Natus repellat maiores ipsum adipisci laudantium fugit, aliquam saepe distinctio unde, reiciendis, facilis sequi neque officia iusto? Rerum repellendus accusantium tempore? Pariatur."
-					},
-					{
-						tutorialId: 3,
-						videoLink: "https://www.youtube.com/embed/jc0Q7OAeRu0",
-						tutorialName: "Third Course",
-						tutorialText:
-							"kldklx ipsum dolor sit, amet consectetur adipisicing elit. Natus repellat maiores ipsum adipisci laudantium fugit, aliquam saepe distinctio unde, reiciendis, facilis sequi neque officia iusto? Rerum repellendus accusantium tempore? Pariatur."
-					}
 				]
 			};
 		},
