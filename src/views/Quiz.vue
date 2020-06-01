@@ -1,6 +1,6 @@
 <template>
 	<div v-if="quiz">
-		<h1>{{this.quiz.title}}</h1>
+		<h1 id="heading">{{this.quiz.title}}</h1>
 		<QuestionContainer
 				:question="this.question"
 				:position="this.questionNumber"
@@ -10,6 +10,12 @@
 		</QuestionContainer>
 	</div>
 </template>
+
+<style lang="scss">
+#heading {
+	text-align: center;
+}
+</style>
 <script>
 import QuestionContainer from "../components/quizzes/QuestionContainer";
 import router from "../router";
