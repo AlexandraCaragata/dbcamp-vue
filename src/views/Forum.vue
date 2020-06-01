@@ -26,16 +26,14 @@
             <p>{{forumPost.text}}</p>
             <div class="comments">
               <h3 class="comments-headline">Comments</h3>
-              <div class="comment">
-                <p>comment 1 text</p>
-              </div>
-              <div class="comment">
-                <p>comment 2 text</p>
+
+              <div class="comment" v-for="comment in forumPost.comments">
+                <p>{{comment.text}}</p>
               </div>
               <form class="add-comment-form">
                 <p>Add comment</p>
-                <textarea name id cols="100" rows="5"></textarea>
-                <button type="submit" class="button">Add comment</button>
+                <textarea cols="100" rows="5" placeholder="Comment" v-model="commentText"></textarea>
+                <button type="submit" class="button" @click="addComment(forumPosts._id.$oid)">Add comment</button>
               </form>
             </div>
           </div>
@@ -235,8 +233,9 @@ export default {
   name: "Forum",
   data: function() {
     return {
-      text: "",
-      subject: "",
+      text: '',
+      subject: '',
+      commentText: '',
       showError: false,
       forumPosts: []
     };
@@ -289,7 +288,35 @@ export default {
         .then(response => response.json())
         .then(data => {
           this.forumPosts = data;
+
+          data.forEach((forumPost) => {
+            fetch(
+                `${process.env.VUE_APP_API_URL}/mongoDBConnections/get-all-comments-for-post.php?forumPostId=${forumPost._id.$oid}`
+            )
+              .then(response => response.json())
+              .then(data => {
+                this.forumPosts[this.forumPosts.indexOf(forumPost)].comments = data;
+              });
+          });
         });
+    },
+
+    addComment: async function (forumPostId) {
+      await fetch(
+        `${process.env.VUE_APP_API_URL}/mongoDBConnections/insert-forum-comment.php`,
+        {
+          method: "POST",
+          body: formDataGenerator.generate({
+            text: this.commentText,
+            userId: this.getUser.id,
+            postId: forumPostId,
+          })
+        }
+      );
+
+      this.commentText = "";
+
+      this.getAllForumPosts();
     }
   }
 };
