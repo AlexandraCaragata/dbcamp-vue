@@ -15,6 +15,9 @@
 #heading {
 	text-align: center;
 }
+footer{
+	position: absolute;
+}
 </style>
 <script>
 import QuestionContainer from "../components/quizzes/QuestionContainer";

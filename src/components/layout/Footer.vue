@@ -1,4 +1,5 @@
 <template>
+<div class="foot">
   <footer>
     <div class="follow-us">
       <h3>Follow us</h3>
@@ -33,28 +34,24 @@
       <a href="/"><img class="logo" src="../../assets/logo.png" alt /></a>
     </div>
   </footer>
+</div>
 </template>
 
 <style lang="scss">
 	footer {
-		display: flex;
-		flex-direction: row;
-		justify-content: space-between;
+    height: 150px;
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     padding: 2vh 0 0 0;
 		bottom: 0;
 		width: 100%; 
 		background-color: #EBE5E1;
-    padding-bottom: 30px;
 	}
 
 	div.follow-us {
-		display: flex;
-		flex-direction: column;
 		margin-left: 3vw;
 
     .follow-us-logos {
-      display: flex;
-      flex-direction: row;
 
       img {
         width: 40px;
