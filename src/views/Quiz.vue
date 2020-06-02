@@ -15,6 +15,12 @@
 #quiz {
   min-height: 600px;
 }
+
+@media screen and (min-width: 1100px) {
+  #quiz {
+    min-height: 800px;
+  }
+}
 #heading {
   text-align: center;
 }

@@ -68,6 +68,7 @@ h1 {
 @media screen and (min-width: 1100px) {
   .wrapper {
     margin: 0 13vw;
+    min-height: 800px;
   }
   .takenCourses {
     display: grid;
