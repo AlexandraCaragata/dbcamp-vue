@@ -1,4 +1,5 @@
-# db-camp
+# DB Camp client side project
+In order to run the project the following commands will need to be run after cloning the project.
 
 ## Project setup
 ```
