@@ -16,9 +16,9 @@
   min-height: 600px;
 }
 
-@media screen and (min-width: 1100px) {
+@media screen and (min-width: 1480px) {
   #quiz {
-    min-height: 800px;
+    min-height: 750px;
   }
 }
 #heading {
